@@ -1,1 +1,2 @@
-# sqlassignments
+# sqlassignment
+mariadb assignments
