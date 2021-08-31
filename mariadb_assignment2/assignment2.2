@@ -1,6 +1,6 @@
  2) show count of subject leaves for students 
  
-MariaDB [assignment]> select CONCAT(students.first_name, " ", students.last_name) AS Name, count(subject_leaves.created_at) AS Leaves from students inner join subject_leaves on students.id = subject_leaves.student_id where students.school_id = 8 group by Name;
+MariaDB [assignment]> select CONCAT(students.first_name, " ", students.last_name) AS Name, count(subject_leaves.id) AS Leaves from students inner join subject_leaves on students.id = subject_leaves.student_id where students.school_id = 8 group by Name;
 +------------------------------------+--------+
 | Name                               | Leaves |
 +------------------------------------+--------+
