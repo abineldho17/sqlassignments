@@ -1,5 +1,8 @@
 8) find all employees who are teacher and has never applied for a leave
-MariaDB [assignment]> select CONCAT(employees.first_name ,' ' , employees.last_name) AS Teacher from employees left join batch_tutors on employees.id = batch_tutors.employee_id  left join employee_attendances on employees.id = employee_attendances.id where  employees.school_id = 8 group by employees.id ;
+MariaDB [assignment]> select CONCAT(employees.first_name ,' ' , employees.last_name) AS Teacher 
+from employees left join batch_tutors on employees.id = batch_tutors.employee_id 
+ left join employee_attendances on employees.id = employee_attendances.id where 
+  employees.school_id = 8 group by employees.id ;
 +---------------------------------------------+
 | Teacher                                     |
 +---------------------------------------------+

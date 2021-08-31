@@ -1,5 +1,11 @@
  9) show student name, total amount to pay and total fine amount (as of today) for all students who has not completely paid
-MariaDB [assignment]> select CONCAT(students.first_name,' ',students.middle_name,' ',students.last_name) as Student_Name,sum(finance_fees.balance) as balance,IFNULL(sum(IF(fine_rules.is_amount,fine_rules.fine_amount,(finance_fees.particular_total*fine_rules.fine_amount/100))), 0.0) as fine from students inner join finance_fees on finance_fees.student_id=students.id inner join finance_fee_collections on finance_fee_collections.id=finance_fees.fee_collection_id left join fines on fines.id=finance_fee_collections.fine_id left join fine_rules on fine_rules.fine_id=fines.id and fine_rules.id= ( select id from fine_rules as fine where fine.fine_id=fines.id and fine.fine_days <= DATEDIFF(finance_fee_collections.due_date,CURDATE()) order by fine.fine_days desc limit 1) where students.school_id=8 group by students.id;
+MariaDB [assignment]> select CONCAT(students.first_name,' ',students.middle_name,' ',students.last_name) as Student_Name,sum(finance_fees.balance) as balance,IFNULL(sum(IF(fine_rules.is_amount,fine_rules.fine_amount,(finance_fees.particular_total*fine_rules.fine_amount/100))), 0.0) as fine 
+from students inner join finance_fees on finance_fees.student_id=students.id 
+inner join finance_fee_collections on finance_fee_collections.id=finance_fees.fee_collection_id left join fines 
+on fines.id=finance_fee_collections.fine_id left join fine_rules on fine_rules.fine_id=fines.id and 
+fine_rules.id= ( select id from fine_rules as fine where fine.fine_id=fines.id and fine.fine_days <= DATEDIFF(finance_fee_collections.due_date,CURDATE()) order by 
+fine.fine_days desc limit 1) where students.school_id=8 
+group by students.id;
 +----------------------------------------------------------+-------------+------------------+
 | Student_Name                                             | balance     | fine             |
 +----------------------------------------------------------+-------------+------------------+
