@@ -1,0 +1,1035 @@
+ 5) find all students who are receiving any sort of discounts in their fees
+
+MariaDB [assignment]> select CONCAT(students.first_name, " ", students.last_name) AS Name,finance_fees.discount_amount as Discount from students inner join finance_fees on students.id=finance_fees.student_id where finance_fees.discount_amount>0 ;
++--------------------------------------+------------+
+| Name                                 | Discount   |
++--------------------------------------+------------+
+| Deepak Mohan                         | 10119.0000 |
+| Deepak Mohan                         |  1011.9000 |
+| Jamalia Clemons                      |   150.0000 |
+| Albert Lio                           |   450.0000 |
+| Neve Daugherty                       |    54.0000 |
+| Albert Lio                           |   300.0000 |
+| Colton Holcomb                       |   454.0000 |
+| Neve Daugherty                       |    27.0000 |
+| Yolanda Arnold                       |    26.0000 |
+| Aspen Harding                        |    26.0000 |
+| Uriah Sears                          |    26.0000 |
+| Yolanda Arnold                       |    26.0000 |
+| Aspen Harding                        |    26.0000 |
+| Uriah Sears                          |    26.0000 |
+| Neve Daugherty                       |    27.0000 |
+| Yolanda Arnold                       |    26.0000 |
+| Aspen Harding                        |    26.0000 |
+| Uriah Sears                          |    26.0000 |
+| Hope Tate                            |    26.0000 |
+| Yolanda Arnold                       |    26.0000 |
+| Aspen Harding                        |    26.0000 |
+| Uriah Sears                          |    26.0000 |
+| Hope Tate                            |    26.0000 |
+| Suman                                |  2000.0000 |
+| Rahul                                |  2000.0000 |
+| Spoorthi                             |    49.0000 |
+| Sreeshanth                           |   682.0000 |
+| Shilpa                               |  2000.0000 |
+| Shiv                                 |    24.2000 |
+| Aretha Tate                          |     2.0000 |
+| Macey Randolph                       |     2.0000 |
+| Lillith Aguirre                      |     2.0000 |
+| Blaze Mccarthy                       |     2.0000 |
+| Althea Hester                        |     2.0000 |
+| Natalie Kerr                         |     2.0000 |
+| Neve Daugherty                       |     2.0000 |
+| Jamalia Clemons                      |     2.0000 |
+| Ignatius Anderson                    |     2.0000 |
+| Albert Lio                           |     2.0000 |
+| Arunraj E                            |     2.0000 |
+| Appu                                 |     2.0000 |
+| Christine Kane                       |     2.0000 |
+| Kessie Adkins                        |     2.0000 |
+| Clinton Cruz                         |     2.0000 |
+| Ryan Abbott                          |     2.0000 |
+| Nehru Ferguson                       |  2000.0000 |
+| Kim Nolan                            |     2.0000 |
+| Evan Vinson pand ram Kinney Vinson   |     2.0000 |
+| Shana Duran                          |     2.0000 |
+| Ronan Johnston                       |     2.0000 |
+| Elvis Savage                         |     2.0000 |
+| Brett Miller                         |     2.0000 |
+| Shafeer Kumar                        |     2.0000 |
+| Basia Carter                         |     2.0000 |
+| Shelley Diaz                         |     2.0000 |
+| Roary Macdonald                      |     2.0000 |
+| Odessa Carver                        |     2.0000 |
+| Candace Powell                       |     2.0000 |
+| Gabriel Navarro                      |     2.0000 |
+| Sybil Hubbard                        |     2.0000 |
+| Dara Hale                            |     2.0000 |
+| Pearl Moses                          |     2.0000 |
+| Tobias Mccullough                    |     2.0000 |
+| Lucas Barnes                         |     2.0000 |
+| Ivory Payne                          |     2.0000 |
+| Pandora Gomez                        |     2.0000 |
+| Remedios Noel                        |     2.0000 |
+| Chanda Santana                       |     2.0000 |
+| Clayton Moody                        |     2.0000 |
+| Sachi                                |     2.0000 |
+| Graiden Quinn                        |     2.0000 |
+| Marcia Campos                        |     2.0000 |
+| Scarlett Steele                      |     2.0000 |
+| Alexander Snyder                     |     2.0000 |
+| MacKensie Hunter                     |     2.0000 |
+| sagar                                |     2.0000 |
+| Zena Hurley                          |     2.0000 |
+| Iona Lambert                         |     2.0000 |
+| Colby Stokes                         |     2.0000 |
+| Clio Castaneda                       |     2.0000 |
+| Ashton Reilly                        |     2.0000 |
+| Aiko Nielsen                         |     2.0000 |
+| Herman Kelley                        |     2.0000 |
+| Alana Burns                          |     2.0000 |
+| Lesley Casey                         |     2.0000 |
+| Ivana Battle                         |     2.0000 |
+| Quinn Kirk                           |     2.0000 |
+| batch transfer student               |     2.0000 |
+| Levi Crosby                          |     2.0000 |
+| Rae Thompson                         |     2.0000 |
+| Lyle Flores                          |     2.0000 |
+| Declan Carroll                       |     2.0000 |
+| Cairo Barber                         |     2.0000 |
+| Belle Petty                          |     2.0000 |
+| Byron Pace                           |     2.0000 |
+| Baxter Preston                       |     2.0000 |
+| Blossom Mckinney                     |     2.0000 |
+| Shad Chandler                        |     2.0000 |
+| Madison Vinson                       |     2.0000 |
+| Ray Whitfield                        |     2.0000 |
+| Holly Good                           |     2.0000 |
+| Breanna Petty                        |     2.0000 |
+| Cooper Robinson                      |     2.0000 |
+| Germane Atkins                       |     2.0000 |
+| Venus Sweet                          |     2.0000 |
+| Raymond Kemp                         |     2.0000 |
+| Risa Battle                          |     2.0000 |
+| Jessica Hardin                       |     2.0000 |
+| Leah Guzman                          |     2.0000 |
+| Srilakshmi                           |     2.0000 |
+| Bell Collier                         |     2.0000 |
+| Alexandra Dickson                    |     2.0000 |
+| Yolanda Arnold                       |     2.0000 |
+| Aspen Harding                        |     2.0000 |
+| Uriah Sears                          |     2.0000 |
+| Hope Tate                            |     2.0000 |
+| Deanna Guerrero                      |     2.0000 |
+| Geoffrey Hayden                      |     2.0000 |
+| Jameson Moody                        |     2.0000 |
+| Wylie Salazar                        |     2.0000 |
+| Malachi Mcgowan                      |     2.0000 |
+| Benedict Holland                     |     2.0000 |
+| Rosalyn Kramer                       |     2.0000 |
+| Jack                                 |     2.0000 |
+| Jill                                 |     2.0000 |
+| John                                 |     2.0000 |
+| Jessy                                |     2.0000 |
+| Jenni                                |     2.0000 |
+| Zane Sanford                         |     2.0000 |
+| Macy Daniels                         |     2.0000 |
+| Emerald Flowers                      |     2.0000 |
+| Bo Chang                             |     2.0000 |
+| Ronan Wagner                         |     2.0000 |
+| Evangeline Morse                     |     2.0000 |
+| Nelle Ashley                         |     2.0000 |
+| Chandler Sanford                     |     2.0000 |
+| Herman Maddox                        |     2.0000 |
+| Bruno Joyner                         |     2.0000 |
+| Paki Bernard                         |     2.0000 |
+| Beatrice Rowe                        |     2.0000 |
+| Leila Middleton                      |     2.0000 |
+| Josephine Hebert                     |     2.0000 |
+| Petra Jefferson                      |     2.0000 |
+| Tatiana Robles                       |     2.0000 |
+| Iola Rios                            |     2.0000 |
+| Talon Trevino                        |     2.0000 |
+| Damon Gallegos                       |     2.0000 |
+| Colton Holcomb                       |     2.0000 |
+| Phyllis Moses                        |     2.0000 |
+| Olga Johnson                         |     2.0000 |
+| Laurel Harper                        |     2.0000 |
+| Lucian Frye                          |     2.0000 |
+| Oren Kim                             |     2.0000 |
+| Brenden Joyner                       |  2000.0000 |
+| Roth Walsh                           |     2.0000 |
+| Calvin Morgan                        |     2.0000 |
+| Mark Watson                          |     2.0000 |
+| Hop Strickland                       |     2.0000 |
+| Deepak Mohan                         |     2.0000 |
+| Harini P                             |     2.0000 |
+| Akash A                              |     2.0000 |
+| Mohan M                              |     2.0000 |
+| Mani K                               |     2.0000 |
+| Kripa T                              |     2.0000 |
+| Gopika Gopalan                       |     2.0000 |
+| Mufeedah Muhammed                    |     2.0000 |
+| Nabeena Ahammed                      |     2.0000 |
+| shiv sagar   s                       |     2.0000 |
+| Harrison Hood                        |     2.0000 |
+| rocky dwane smith john               |     2.0000 |
+| mike tyson                           |     2.0000 |
+| rocky                                |     2.0000 |
+| Rocky s                              |     2.0000 |
+| Diya                                 |     2.0000 |
+| Diya                                 |     2.0000 |
+| Cassandra Snow                       |     2.0000 |
+| Walter Raymond                       |     2.0000 |
+| Aneez Azeez                          |     2.0000 |
+| Thriveni P K                         |     2.0000 |
+| Neeraja P                            |     2.0000 |
+| Vani V                               |     2.0000 |
+| Sankitha S                           |     2.0000 |
+| Mary Reena                           |     2.0000 |
+| Roy Thomas                           |     2.0000 |
+| Rithin Raveendran                    |     2.0000 |
+| Mrithul Mohan                        |     2.0000 |
+| Wilma Britt                          |     2.0000 |
+| henry s                              |     2.0000 |
+| Thomas Roy                           |     2.0000 |
+| Revathi Mol                          |     2.0000 |
+| Gopan G                              |     2.0000 |
+| Steve Clive                          |     2.0000 |
+| Bill  Gates                          |     2.0000 |
+| Manu SV                              |     2.0000 |
+| Mini M                               |     2.0000 |
+| Sneha S                              |     2.0000 |
+| Chandrika C                          |     2.0000 |
+| Priya P                              |     2.0000 |
+| Nero Lawson                          |     2.0000 |
+| Kebir K                              |     2.0000 |
+| Augustus Brave                       |     2.0000 |
+| Karunya k                            |     2.0000 |
+| Peter Clive                          |     2.0000 |
+| Manohoran K                          |     2.0000 |
+| Mohith K                             |     2.0000 |
+| Farhana M                            |     2.0000 |
+| Athulya P                            |     2.0000 |
+| Sreekala K                           |     2.0000 |
+| Sreelatha V                          |     2.0000 |
+| Lucian Hewitt                        |     2.0000 |
+| Karthik K                            |     2.0000 |
+| AADI  MAHESHWARI                     |     2.0000 |
+| Aboobacker A                         |     2.0000 |
+| Praveen P                            |     2.0000 |
+| Preethi P                            |     2.0000 |
+| Priya A                              |     2.0000 |
+| Marjana Farhan                       |     2.0000 |
+| Fathima P                            |     2.0000 |
+| Matthew Guy                          |     2.0000 |
+| Chanda Wallace                       |     2.0000 |
+| Meghan Fulton                        |     2.0000 |
+| Madaline Anthony                     |     2.0000 |
+| Jelani Robertson                     |     2.0000 |
+| Ingrid Clay                          |     2.0000 |
+| Debra Zamora                         |  1002.0000 |
+| Kenyon Wolf                          |     2.0000 |
+| Upton Park                           |     2.0000 |
+| ناوی بەکارهێنان Carson               |     2.0000 |
+| Akeem Emerson                        |     2.0000 |
+| Kelsey Castro                        |     2.0000 |
+| Burke Alford                         |     2.0000 |
+| Sylvester Barber                     |     2.0000 |
+| Katelyn Ferguson                     |     2.0000 |
+| Herman Little                        |     2.0000 |
+| Damon Wilcox                         |     2.0000 |
+| Illana Henderson                     |     2.0000 |
+| Ursula Graves                        |     2.0000 |
+| Charles Webster                      |     2.0000 |
+| Kendall Luna                         |     2.0000 |
+| Brianna Brewer                       |     2.0000 |
+| Cassidy Berger                       |     2.0000 |
+| Baxter Pierce                        |     2.0000 |
+| Alexa Estrada                        |     2.0000 |
+| Hashim English                       |     2.0000 |
+| Kyle Faulkner                        |  2000.0000 |
+| Stuart Bray                          |     2.0000 |
+| Shilpa                               |     2.0000 |
+| Kripa                                |     2.0000 |
+| Haritha                              |     2.0000 |
+| Karthik                              |     2.0000 |
+| Suman                                |  2000.0000 |
+| Rahul                                |  2000.0000 |
+| Spoorthi                             |    27.0000 |
+| Sreeshanth                           |     2.0000 |
+| Shilpa                               |  2000.0000 |
+| Shiv                                 |    68.2000 |
+| Aretha Tate                          |     2.0000 |
+| Macey Randolph                       |     2.0000 |
+| Lillith Aguirre                      |     2.0000 |
+| Blaze Mccarthy                       |     2.0000 |
+| Althea Hester                        |     2.0000 |
+| Natalie Kerr                         |     2.0000 |
+| Neve Daugherty                       |     2.0000 |
+| Jamalia Clemons                      |     2.0000 |
+| Ignatius Anderson                    |     2.0000 |
+| Albert Lio                           |     2.0000 |
+| Arunraj E                            |     2.0000 |
+| Appu                                 |     2.0000 |
+| Christine Kane                       |     2.0000 |
+| Kessie Adkins                        |     2.0000 |
+| Clinton Cruz                         |     2.0000 |
+| Ryan Abbott                          |     2.0000 |
+| Nehru Ferguson                       |  2000.0000 |
+| Kim Nolan                            |     2.0000 |
+| Evan Vinson pand ram Kinney Vinson   |     2.0000 |
+| Shana Duran                          |     2.0000 |
+| Ronan Johnston                       |     2.0000 |
+| Elvis Savage                         |     2.0000 |
+| Brett Miller                         |     2.0000 |
+| Shafeer Kumar                        |     2.0000 |
+| Basia Carter                         |     2.0000 |
+| Shelley Diaz                         |     2.0000 |
+| Roary Macdonald                      |     2.0000 |
+| Odessa Carver                        |     2.0000 |
+| Candace Powell                       |     2.0000 |
+| Gabriel Navarro                      |     2.0000 |
+| Sybil Hubbard                        |     2.0000 |
+| Dara Hale                            |     2.0000 |
+| Pearl Moses                          |     2.0000 |
+| Tobias Mccullough                    |     2.0000 |
+| Lucas Barnes                         |     2.0000 |
+| Ivory Payne                          |     2.0000 |
+| Pandora Gomez                        |     2.0000 |
+| Remedios Noel                        |     2.0000 |
+| Chanda Santana                       |     2.0000 |
+| Clayton Moody                        |     2.0000 |
+| Sachi                                |     2.0000 |
+| Graiden Quinn                        |     2.0000 |
+| Marcia Campos                        |     2.0000 |
+| Scarlett Steele                      |     2.0000 |
+| Alexander Snyder                     |     2.0000 |
+| MacKensie Hunter                     |     2.0000 |
+| sagar                                |     2.0000 |
+| Zena Hurley                          |     2.0000 |
+| Iona Lambert                         |     2.0000 |
+| Colby Stokes                         |     2.0000 |
+| Clio Castaneda                       |     2.0000 |
+| Ashton Reilly                        |     2.0000 |
+| Aiko Nielsen                         |     2.0000 |
+| Herman Kelley                        |     2.0000 |
+| Alana Burns                          |     2.0000 |
+| Lesley Casey                         |     2.0000 |
+| Ivana Battle                         |     2.0000 |
+| Quinn Kirk                           |     2.0000 |
+| batch transfer student               |     2.0000 |
+| Levi Crosby                          |     2.0000 |
+| Rae Thompson                         |     2.0000 |
+| Lyle Flores                          |     2.0000 |
+| Declan Carroll                       |     2.0000 |
+| Cairo Barber                         |     2.0000 |
+| Belle Petty                          |     2.0000 |
+| Byron Pace                           |     2.0000 |
+| Baxter Preston                       |     2.0000 |
+| Blossom Mckinney                     |     2.0000 |
+| Shad Chandler                        |     2.0000 |
+| Madison Vinson                       |     2.0000 |
+| Ray Whitfield                        |     2.0000 |
+| Holly Good                           |     2.0000 |
+| Breanna Petty                        |     2.0000 |
+| Cooper Robinson                      |     2.0000 |
+| Germane Atkins                       |     2.0000 |
+| Venus Sweet                          |     2.0000 |
+| Raymond Kemp                         |     2.0000 |
+| Risa Battle                          |     2.0000 |
+| Jessica Hardin                       |     2.0000 |
+| Leah Guzman                          |     2.0000 |
+| Srilakshmi                           |     2.0000 |
+| Bell Collier                         |     2.0000 |
+| Alexandra Dickson                    |     2.0000 |
+| Yolanda Arnold                       |     2.0000 |
+| Aspen Harding                        |     2.0000 |
+| Uriah Sears                          |     2.0000 |
+| Hope Tate                            |     2.0000 |
+| Deanna Guerrero                      |     2.0000 |
+| Geoffrey Hayden                      |     2.0000 |
+| Jameson Moody                        |     2.0000 |
+| Wylie Salazar                        |     2.0000 |
+| Malachi Mcgowan                      |     2.0000 |
+| Benedict Holland                     |     2.0000 |
+| Rosalyn Kramer                       |     2.0000 |
+| Jack                                 |     2.0000 |
+| Jill                                 |     2.0000 |
+| John                                 |     2.0000 |
+| Jessy                                |     2.0000 |
+| Jenni                                |     2.0000 |
+| Zane Sanford                         |     2.0000 |
+| Macy Daniels                         |     2.0000 |
+| Emerald Flowers                      |     2.0000 |
+| Bo Chang                             |     2.0000 |
+| Ronan Wagner                         |     2.0000 |
+| Evangeline Morse                     |     2.0000 |
+| Nelle Ashley                         |     2.0000 |
+| Chandler Sanford                     |     2.0000 |
+| Herman Maddox                        |     2.0000 |
+| Bruno Joyner                         |     2.0000 |
+| Paki Bernard                         |     2.0000 |
+| Beatrice Rowe                        |     2.0000 |
+| Leila Middleton                      |     2.0000 |
+| Josephine Hebert                     |     2.0000 |
+| Petra Jefferson                      |     2.0000 |
+| Tatiana Robles                       |     2.0000 |
+| Iola Rios                            |     2.0000 |
+| Talon Trevino                        |     2.0000 |
+| Damon Gallegos                       |     2.0000 |
+| Colton Holcomb                       |     2.0000 |
+| Phyllis Moses                        |     2.0000 |
+| Olga Johnson                         |     2.0000 |
+| Laurel Harper                        |     2.0000 |
+| Lucian Frye                          |     2.0000 |
+| Oren Kim                             |     2.0000 |
+| Brenden Joyner                       |  2000.0000 |
+| Roth Walsh                           |     2.0000 |
+| Calvin Morgan                        |     2.0000 |
+| Mark Watson                          |     2.0000 |
+| Hop Strickland                       |     2.0000 |
+| Deepak Mohan                         |     2.0000 |
+| Harini P                             |     2.0000 |
+| Akash A                              |     2.0000 |
+| Mohan M                              |     2.0000 |
+| Mani K                               |     2.0000 |
+| Kripa T                              |     2.0000 |
+| Gopika Gopalan                       |     2.0000 |
+| Mufeedah Muhammed                    |     2.0000 |
+| Nabeena Ahammed                      |     2.0000 |
+| shiv sagar   s                       |     2.0000 |
+| Harrison Hood                        |     2.0000 |
+| rocky dwane smith john               |     2.0000 |
+| mike tyson                           |     2.0000 |
+| rocky                                |     2.0000 |
+| Rocky s                              |     2.0000 |
+| Diya                                 |     2.0000 |
+| Diya                                 |     2.0000 |
+| Cassandra Snow                       |     2.0000 |
+| Walter Raymond                       |     2.0000 |
+| Aneez Azeez                          |     2.0000 |
+| Thriveni P K                         |     2.0000 |
+| Neeraja P                            |     2.0000 |
+| Vani V                               |     2.0000 |
+| Sankitha S                           |     2.0000 |
+| Mary Reena                           |     2.0000 |
+| Roy Thomas                           |     2.0000 |
+| Rithin Raveendran                    |     2.0000 |
+| Mrithul Mohan                        |     2.0000 |
+| Wilma Britt                          |     2.0000 |
+| henry s                              |     2.0000 |
+| Thomas Roy                           |     2.0000 |
+| Revathi Mol                          |     2.0000 |
+| Gopan G                              |     2.0000 |
+| Steve Clive                          |     2.0000 |
+| Bill  Gates                          |     2.0000 |
+| Manu SV                              |     2.0000 |
+| Mini M                               |     2.0000 |
+| Sneha S                              |     2.0000 |
+| Chandrika C                          |     2.0000 |
+| Priya P                              |     2.0000 |
+| Nero Lawson                          |     2.0000 |
+| Kebir K                              |     2.0000 |
+| Augustus Brave                       |     2.0000 |
+| Karunya k                            |     2.0000 |
+| Peter Clive                          |     2.0000 |
+| Manohoran K                          |     2.0000 |
+| Mohith K                             |     2.0000 |
+| Farhana M                            |     2.0000 |
+| Athulya P                            |     2.0000 |
+| Sreekala K                           |     2.0000 |
+| Sreelatha V                          |     2.0000 |
+| Lucian Hewitt                        |     2.0000 |
+| Karthik K                            |     2.0000 |
+| AADI  MAHESHWARI                     |     2.0000 |
+| Aboobacker A                         |     2.0000 |
+| Praveen P                            |     2.0000 |
+| Preethi P                            |     2.0000 |
+| Priya A                              |     2.0000 |
+| Marjana Farhan                       |     2.0000 |
+| Fathima P                            |     2.0000 |
+| Matthew Guy                          |     2.0000 |
+| Chanda Wallace                       |     2.0000 |
+| Meghan Fulton                        |     2.0000 |
+| Madaline Anthony                     |     2.0000 |
+| Jelani Robertson                     |     2.0000 |
+| Ingrid Clay                          |     2.0000 |
+| Debra Zamora                         |     2.0000 |
+| Kenyon Wolf                          |     2.0000 |
+| Upton Park                           |     2.0000 |
+| ناوی بەکارهێنان Carson               |     2.0000 |
+| Akeem Emerson                        |     2.0000 |
+| Kelsey Castro                        |     2.0000 |
+| Burke Alford                         |     2.0000 |
+| Sylvester Barber                     |     2.0000 |
+| Katelyn Ferguson                     |     2.0000 |
+| Herman Little                        |     2.0000 |
+| Damon Wilcox                         |     2.0000 |
+| Illana Henderson                     |     2.0000 |
+| Ursula Graves                        |     2.0000 |
+| Charles Webster                      |     2.0000 |
+| Kendall Luna                         |     2.0000 |
+| Brianna Brewer                       |     2.0000 |
+| Cassidy Berger                       |     2.0000 |
+| Baxter Pierce                        |     2.0000 |
+| Alexa Estrada                        |     2.0000 |
+| Hashim English                       |     2.0000 |
+| Kyle Faulkner                        |  2000.0000 |
+| Stuart Bray                          |     2.0000 |
+| Shilpa                               |     2.0000 |
+| Kripa                                |     2.0000 |
+| Haritha                              |     2.0000 |
+| Karthik                              |     2.0000 |
+| Suman                                |  2000.0000 |
+| Rahul                                |  2000.0000 |
+| Spoorthi                             |     2.0000 |
+| Sreeshanth                           |     2.0000 |
+| Shilpa                               |  2000.0000 |
+| Shiv                                 |    24.2000 |
+| Aretha Tate                          |     2.0000 |
+| Macey Randolph                       |     2.0000 |
+| Lillith Aguirre                      |     2.0000 |
+| Blaze Mccarthy                       |    27.0000 |
+| Althea Hester                        |     2.0000 |
+| Natalie Kerr                         |    27.0000 |
+| Neve Daugherty                       |     2.0000 |
+| Jamalia Clemons                      |     2.0000 |
+| Ignatius Anderson                    |    27.0000 |
+| Albert Lio                           |     2.0000 |
+| Arunraj E                            |     2.0000 |
+| Appu                                 |     2.0000 |
+| Christine Kane                       |    27.0000 |
+| Kessie Adkins                        |     2.0000 |
+| Clinton Cruz                         |     2.0000 |
+| Ryan Abbott                          |    27.0000 |
+| Nehru Ferguson                       |  2000.0000 |
+| Kim Nolan                            |    27.0000 |
+| Evan Vinson pand ram Kinney Vinson   |     2.0000 |
+| Shana Duran                          |     2.0000 |
+| Ronan Johnston                       |     2.0000 |
+| Elvis Savage                         |    27.0000 |
+| Brett Miller                         |     2.0000 |
+| Shafeer Kumar                        |     2.0000 |
+| Basia Carter                         |     2.0000 |
+| Shelley Diaz                         |    27.0000 |
+| Roary Macdonald                      |    27.0000 |
+| Odessa Carver                        |     2.0000 |
+| Candace Powell                       |     2.0000 |
+| Gabriel Navarro                      |    27.0000 |
+| Sybil Hubbard                        |    27.0000 |
+| Dara Hale                            |    27.0000 |
+| Pearl Moses                          |    27.0000 |
+| Tobias Mccullough                    |    27.0000 |
+| Lucas Barnes                         |     2.0000 |
+| Ivory Payne                          |    27.0000 |
+| Pandora Gomez                        |    27.0000 |
+| Remedios Noel                        |     2.0000 |
+| Chanda Santana                       |    27.0000 |
+| Clayton Moody                        |    27.0000 |
+| Sachi                                |     2.0000 |
+| Graiden Quinn                        |     2.0000 |
+| Marcia Campos                        |     2.0000 |
+| Scarlett Steele                      |     2.0000 |
+| Alexander Snyder                     |     2.0000 |
+| MacKensie Hunter                     |    27.0000 |
+| sagar                                |     2.0000 |
+| Zena Hurley                          |     2.0000 |
+| Iona Lambert                         |     2.0000 |
+| Colby Stokes                         |     2.0000 |
+| Clio Castaneda                       |     2.0000 |
+| Ashton Reilly                        |     2.0000 |
+| Aiko Nielsen                         |     2.0000 |
+| Herman Kelley                        |     2.0000 |
+| Alana Burns                          |     2.0000 |
+| Lesley Casey                         |     2.0000 |
+| Ivana Battle                         |     2.0000 |
+| Quinn Kirk                           |    27.0000 |
+| batch transfer student               |     2.0000 |
+| Levi Crosby                          |     2.0000 |
+| Rae Thompson                         |     2.0000 |
+| Lyle Flores                          |    27.0000 |
+| Declan Carroll                       |     2.0000 |
+| Cairo Barber                         |    27.0000 |
+| Belle Petty                          |    27.0000 |
+| Byron Pace                           |     2.0000 |
+| Baxter Preston                       |     2.0000 |
+| Blossom Mckinney                     |    27.0000 |
+| Shad Chandler                        |     2.0000 |
+| Madison Vinson                       |     2.0000 |
+| Ray Whitfield                        |    27.0000 |
+| Holly Good                           |     2.0000 |
+| Breanna Petty                        |    27.0000 |
+| Cooper Robinson                      |     2.0000 |
+| Germane Atkins                       |     2.0000 |
+| Venus Sweet                          |     2.0000 |
+| Raymond Kemp                         |     2.0000 |
+| Risa Battle                          |     2.0000 |
+| Jessica Hardin                       |     2.0000 |
+| Leah Guzman                          |     2.0000 |
+| Srilakshmi                           |     2.0000 |
+| Bell Collier                         |     2.0000 |
+| Alexandra Dickson                    |    27.0000 |
+| Yolanda Arnold                       |     2.0000 |
+| Aspen Harding                        |     2.0000 |
+| Uriah Sears                          |    27.0000 |
+| Hope Tate                            |     2.0000 |
+| Deanna Guerrero                      |     2.0000 |
+| Geoffrey Hayden                      |     2.0000 |
+| Jameson Moody                        |     2.0000 |
+| Wylie Salazar                        |    27.0000 |
+| Malachi Mcgowan                      |     2.0000 |
+| Benedict Holland                     |    27.0000 |
+| Rosalyn Kramer                       |     2.0000 |
+| Jack                                 |     2.0000 |
+| Jill                                 |    27.0000 |
+| John                                 |     2.0000 |
+| Jessy                                |     2.0000 |
+| Jenni                                |     2.0000 |
+| Zane Sanford                         |    27.0000 |
+| Macy Daniels                         |     2.0000 |
+| Emerald Flowers                      |     2.0000 |
+| Bo Chang                             |    27.0000 |
+| Ronan Wagner                         |     2.0000 |
+| Evangeline Morse                     |    27.0000 |
+| Nelle Ashley                         |    27.0000 |
+| Chandler Sanford                     |     2.0000 |
+| Herman Maddox                        |     2.0000 |
+| Bruno Joyner                         |     2.0000 |
+| Paki Bernard                         |     2.0000 |
+| Beatrice Rowe                        |     2.0000 |
+| Leila Middleton                      |    27.0000 |
+| Josephine Hebert                     |     2.0000 |
+| Petra Jefferson                      |    27.0000 |
+| Tatiana Robles                       |     2.0000 |
+| Iola Rios                            |     2.0000 |
+| Talon Trevino                        |     2.0000 |
+| Damon Gallegos                       |     2.0000 |
+| Colton Holcomb                       |  1002.0000 |
+| Phyllis Moses                        |     2.0000 |
+| Olga Johnson                         |     2.0000 |
+| Laurel Harper                        |     2.0000 |
+| Lucian Frye                          |     2.0000 |
+| Oren Kim                             |     2.0000 |
+| Brenden Joyner                       |  2000.0000 |
+| Roth Walsh                           |     2.0000 |
+| Calvin Morgan                        |     2.0000 |
+| Mark Watson                          |     2.0000 |
+| Hop Strickland                       |     2.0000 |
+| Deepak Mohan                         |     2.0000 |
+| Harini P                             |    27.0000 |
+| Akash A                              |     2.0000 |
+| Mohan M                              |     2.0000 |
+| Mani K                               |    27.0000 |
+| Kripa T                              |     2.0000 |
+| Gopika Gopalan                       |    27.0000 |
+| Mufeedah Muhammed                    |    27.0000 |
+| Nabeena Ahammed                      |    27.0000 |
+| shiv sagar   s                       |    27.0000 |
+| Harrison Hood                        |     2.0000 |
+| rocky dwane smith john               |     2.0000 |
+| mike tyson                           |     2.0000 |
+| rocky                                |     2.0000 |
+| Rocky s                              |     2.0000 |
+| Diya                                 |     2.0000 |
+| Diya                                 |     2.0000 |
+| Cassandra Snow                       |     2.0000 |
+| Walter Raymond                       |    27.0000 |
+| Aneez Azeez                          |    27.0000 |
+| Thriveni P K                         |     2.0000 |
+| Neeraja P                            |     2.0000 |
+| Vani V                               |     2.0000 |
+| Sankitha S                           |    27.0000 |
+| Mary Reena                           |     2.0000 |
+| Roy Thomas                           |    27.0000 |
+| Rithin Raveendran                    |     2.0000 |
+| Mrithul Mohan                        |     2.0000 |
+| Wilma Britt                          |     2.0000 |
+| henry s                              |     2.0000 |
+| Thomas Roy                           |     2.0000 |
+| Revathi Mol                          |     2.0000 |
+| Gopan G                              |    27.0000 |
+| Steve Clive                          |     2.0000 |
+| Bill  Gates                          |     2.0000 |
+| Manu SV                              |    27.0000 |
+| Mini M                               |     2.0000 |
+| Sneha S                              |     2.0000 |
+| Chandrika C                          |    27.0000 |
+| Priya P                              |     2.0000 |
+| Nero Lawson                          |     2.0000 |
+| Kebir K                              |     2.0000 |
+| Augustus Brave                       |     2.0000 |
+| Karunya k                            |    27.0000 |
+| Peter Clive                          |     2.0000 |
+| Manohoran K                          |    27.0000 |
+| Mohith K                             |     2.0000 |
+| Farhana M                            |    27.0000 |
+| Athulya P                            |     2.0000 |
+| Sreekala K                           |    27.0000 |
+| Sreelatha V                          |    27.0000 |
+| Lucian Hewitt                        |     2.0000 |
+| Karthik K                            |    27.0000 |
+| AADI  MAHESHWARI                     |     2.0000 |
+| Aboobacker A                         |     2.0000 |
+| Praveen P                            |     2.0000 |
+| Preethi P                            |    27.0000 |
+| Priya A                              |     2.0000 |
+| Marjana Farhan                       |    27.0000 |
+| Fathima P                            |    27.0000 |
+| Matthew Guy                          |     2.0000 |
+| Chanda Wallace                       |     2.0000 |
+| Meghan Fulton                        |     2.0000 |
+| Madaline Anthony                     |    27.0000 |
+| Jelani Robertson                     |     2.0000 |
+| Ingrid Clay                          |     2.0000 |
+| Debra Zamora                         |     2.0000 |
+| Kenyon Wolf                          |     2.0000 |
+| Upton Park                           |    27.0000 |
+| ناوی بەکارهێنان Carson               |    27.0000 |
+| Akeem Emerson                        |     2.0000 |
+| Kelsey Castro                        |     2.0000 |
+| Burke Alford                         |     2.0000 |
+| Sylvester Barber                     |     2.0000 |
+| Katelyn Ferguson                     |    27.0000 |
+| Herman Little                        |     2.0000 |
+| Damon Wilcox                         |     2.0000 |
+| Illana Henderson                     |     2.0000 |
+| Ursula Graves                        |     2.0000 |
+| Charles Webster                      |     2.0000 |
+| Kendall Luna                         |     2.0000 |
+| Brianna Brewer                       |     2.0000 |
+| Cassidy Berger                       |    27.0000 |
+| Baxter Pierce                        |     2.0000 |
+| Alexa Estrada                        |    27.0000 |
+| Hashim English                       |    27.0000 |
+| Kyle Faulkner                        |  2000.0000 |
+| Stuart Bray                          |     2.0000 |
+| Shilpa                               |     2.0000 |
+| Kripa                                |     2.0000 |
+| Haritha                              |     2.0000 |
+| Karthik                              |     2.0000 |
+| Suman                                |  2000.0000 |
+| Rahul                                |  2000.0000 |
+| Spoorthi                             |     2.0000 |
+| Sreeshanth                           |     2.0000 |
+| Shilpa                               |  2000.0000 |
+| Shiv                                 |    29.2000 |
+| Aretha Tate                          |     2.0000 |
+| Macey Randolph                       |     2.0000 |
+| Lillith Aguirre                      |     2.0000 |
+| Blaze Mccarthy                       |    27.0000 |
+| Althea Hester                        |     2.0000 |
+| Natalie Kerr                         |    27.0000 |
+| Neve Daugherty                       |     2.0000 |
+| Jamalia Clemons                      |     2.0000 |
+| Ignatius Anderson                    |    27.0000 |
+| Albert Lio                           |     2.0000 |
+| Arunraj E                            |     2.0000 |
+| Appu                                 |     2.0000 |
+| Christine Kane                       |    27.0000 |
+| Kessie Adkins                        |     2.0000 |
+| Clinton Cruz                         |     2.0000 |
+| Ryan Abbott                          |    27.0000 |
+| Nehru Ferguson                       |  2000.0000 |
+| Kim Nolan                            |    27.0000 |
+| Evan Vinson pand ram Kinney Vinson   |     2.0000 |
+| Shana Duran                          |     2.0000 |
+| Ronan Johnston                       |     2.0000 |
+| Elvis Savage                         |    27.0000 |
+| Brett Miller                         |     2.0000 |
+| Shafeer Kumar                        |     2.0000 |
+| Basia Carter                         |     2.0000 |
+| Shelley Diaz                         |    27.0000 |
+| Roary Macdonald                      |    27.0000 |
+| Odessa Carver                        |     2.0000 |
+| Candace Powell                       |     2.0000 |
+| Gabriel Navarro                      |    27.0000 |
+| Sybil Hubbard                        |    27.0000 |
+| Dara Hale                            |    27.0000 |
+| Pearl Moses                          |    27.0000 |
+| Tobias Mccullough                    |    27.0000 |
+| Lucas Barnes                         |     2.0000 |
+| Ivory Payne                          |    27.0000 |
+| Pandora Gomez                        |    27.0000 |
+| Remedios Noel                        |     2.0000 |
+| Chanda Santana                       |    27.0000 |
+| Clayton Moody                        |    27.0000 |
+| Sachi                                |     2.0000 |
+| Graiden Quinn                        |     2.0000 |
+| Marcia Campos                        |     2.0000 |
+| Scarlett Steele                      |     2.0000 |
+| Alexander Snyder                     |     2.0000 |
+| MacKensie Hunter                     |    27.0000 |
+| sagar                                |     2.0000 |
+| Zena Hurley                          |     2.0000 |
+| Iona Lambert                         |     2.0000 |
+| Colby Stokes                         |     2.0000 |
+| Clio Castaneda                       |     2.0000 |
+| Ashton Reilly                        |     2.0000 |
+| Aiko Nielsen                         |     2.0000 |
+| Herman Kelley                        |     2.0000 |
+| Alana Burns                          |     2.0000 |
+| Lesley Casey                         |     2.0000 |
+| Ivana Battle                         |     2.0000 |
+| Quinn Kirk                           |    27.0000 |
+| batch transfer student               |     2.0000 |
+| Levi Crosby                          |     2.0000 |
+| Rae Thompson                         |     2.0000 |
+| Lyle Flores                          |    27.0000 |
+| Declan Carroll                       |     2.0000 |
+| Cairo Barber                         |    27.0000 |
+| Belle Petty                          |    27.0000 |
+| Byron Pace                           |     2.0000 |
+| Baxter Preston                       |     2.0000 |
+| Blossom Mckinney                     |    27.0000 |
+| Shad Chandler                        |     2.0000 |
+| Madison Vinson                       |     2.0000 |
+| Ray Whitfield                        |    27.0000 |
+| Holly Good                           |     2.0000 |
+| Breanna Petty                        |    27.0000 |
+| Cooper Robinson                      |     2.0000 |
+| Germane Atkins                       |     2.0000 |
+| Venus Sweet                          |     2.0000 |
+| Raymond Kemp                         |     2.0000 |
+| Risa Battle                          |     2.0000 |
+| Jessica Hardin                       |     2.0000 |
+| Leah Guzman                          |     2.0000 |
+| Srilakshmi                           |     2.0000 |
+| Bell Collier                         |     2.0000 |
+| Alexandra Dickson                    |    27.0000 |
+| Yolanda Arnold                       |     2.0000 |
+| Aspen Harding                        |     2.0000 |
+| Uriah Sears                          |    27.0000 |
+| Hope Tate                            |     2.0000 |
+| Deanna Guerrero                      |     2.0000 |
+| Geoffrey Hayden                      |     2.0000 |
+| Jameson Moody                        |     2.0000 |
+| Wylie Salazar                        |    27.0000 |
+| Malachi Mcgowan                      |     2.0000 |
+| Benedict Holland                     |    27.0000 |
+| Rosalyn Kramer                       |     2.0000 |
+| Jack                                 |     2.0000 |
+| Jill                                 |    27.0000 |
+| John                                 |     2.0000 |
+| Jessy                                |     2.0000 |
+| Jenni                                |     2.0000 |
+| Zane Sanford                         |    27.0000 |
+| Macy Daniels                         |     2.0000 |
+| Emerald Flowers                      |     2.0000 |
+| Bo Chang                             |    27.0000 |
+| Ronan Wagner                         |     2.0000 |
+| Evangeline Morse                     |    27.0000 |
+| Nelle Ashley                         |    27.0000 |
+| Chandler Sanford                     |     2.0000 |
+| Herman Maddox                        |     2.0000 |
+| Bruno Joyner                         |     2.0000 |
+| Paki Bernard                         |     2.0000 |
+| Beatrice Rowe                        |     2.0000 |
+| Leila Middleton                      |    27.0000 |
+| Josephine Hebert                     |     2.0000 |
+| Petra Jefferson                      |    27.0000 |
+| Tatiana Robles                       |     2.0000 |
+| Iola Rios                            |     2.0000 |
+| Talon Trevino                        |     2.0000 |
+| Damon Gallegos                       |     2.0000 |
+| Colton Holcomb                       |     2.0000 |
+| Phyllis Moses                        |     2.0000 |
+| Olga Johnson                         |     2.0000 |
+| Laurel Harper                        |     2.0000 |
+| Lucian Frye                          |     2.0000 |
+| Oren Kim                             |     2.0000 |
+| Brenden Joyner                       |  2000.0000 |
+| Roth Walsh                           |     2.0000 |
+| Calvin Morgan                        |     2.0000 |
+| Mark Watson                          |     2.0000 |
+| Hop Strickland                       |     2.0000 |
+| Deepak Mohan                         |     2.0000 |
+| Harini P                             |    27.0000 |
+| Akash A                              |     2.0000 |
+| Mohan M                              |     2.0000 |
+| Mani K                               |    27.0000 |
+| Kripa T                              |     2.0000 |
+| Gopika Gopalan                       |    27.0000 |
+| Mufeedah Muhammed                    |    27.0000 |
+| Nabeena Ahammed                      |    27.0000 |
+| shiv sagar   s                       |    27.0000 |
+| Harrison Hood                        |     2.0000 |
+| rocky dwane smith john               |     2.0000 |
+| mike tyson                           |     2.0000 |
+| rocky                                |     2.0000 |
+| Rocky s                              |     2.0000 |
+| Diya                                 |     2.0000 |
+| Diya                                 |     2.0000 |
+| Cassandra Snow                       |     2.0000 |
+| Walter Raymond                       |    27.0000 |
+| Aneez Azeez                          |    27.0000 |
+| Thriveni P K                         |     2.0000 |
+| Neeraja P                            |     2.0000 |
+| Vani V                               |     2.0000 |
+| Sankitha S                           |    27.0000 |
+| Mary Reena                           |     2.0000 |
+| Roy Thomas                           |    27.0000 |
+| Rithin Raveendran                    |     2.0000 |
+| Mrithul Mohan                        |     2.0000 |
+| Wilma Britt                          |     2.0000 |
+| henry s                              |     2.0000 |
+| Thomas Roy                           |     2.0000 |
+| Revathi Mol                          |     2.0000 |
+| Gopan G                              |    27.0000 |
+| Steve Clive                          |     2.0000 |
+| Bill  Gates                          |     2.0000 |
+| Manu SV                              |    27.0000 |
+| Mini M                               |     2.0000 |
+| Sneha S                              |     2.0000 |
+| Chandrika C                          |    27.0000 |
+| Priya P                              |     2.0000 |
+| Nero Lawson                          |     2.0000 |
+| Kebir K                              |     2.0000 |
+| Augustus Brave                       |     2.0000 |
+| Karunya k                            |    27.0000 |
+| Peter Clive                          |     2.0000 |
+| Manohoran K                          |    27.0000 |
+| Mohith K                             |     2.0000 |
+| Farhana M                            |    27.0000 |
+| Athulya P                            |     2.0000 |
+| Sreekala K                           |    27.0000 |
+| Sreelatha V                          |    27.0000 |
+| Lucian Hewitt                        |     2.0000 |
+| Karthik K                            |    27.0000 |
+| AADI  MAHESHWARI                     |     2.0000 |
+| Aboobacker A                         |     2.0000 |
+| Praveen P                            |     2.0000 |
+| Preethi P                            |    27.0000 |
+| Priya A                              |     2.0000 |
+| Marjana Farhan                       |    27.0000 |
+| Fathima P                            |    27.0000 |
+| Matthew Guy                          |     2.0000 |
+| Chanda Wallace                       |     2.0000 |
+| Meghan Fulton                        |     2.0000 |
+| Madaline Anthony                     |    27.0000 |
+| Jelani Robertson                     |     2.0000 |
+| Ingrid Clay                          |     2.0000 |
+| Debra Zamora                         |     2.0000 |
+| Kenyon Wolf                          |     2.0000 |
+| Upton Park                           |    27.0000 |
+| ناوی بەکارهێنان Carson               |    27.0000 |
+| Akeem Emerson                        |     2.0000 |
+| Kelsey Castro                        |     2.0000 |
+| Burke Alford                         |     2.0000 |
+| Sylvester Barber                     |     2.0000 |
+| Katelyn Ferguson                     |    27.0000 |
+| Herman Little                        |     2.0000 |
+| Damon Wilcox                         |     2.0000 |
+| Illana Henderson                     |     2.0000 |
+| Ursula Graves                        |     2.0000 |
+| Charles Webster                      |     2.0000 |
+| Kendall Luna                         |     2.0000 |
+| Brianna Brewer                       |     2.0000 |
+| Cassidy Berger                       |    27.0000 |
+| Baxter Pierce                        |     2.0000 |
+| Alexa Estrada                        |    27.0000 |
+| Hashim English                       |    27.0000 |
+| Kyle Faulkner                        |  2000.0000 |
+| Stuart Bray                          |     2.0000 |
+| Shilpa                               |     2.0000 |
+| Kripa                                |     2.0000 |
+| Haritha                              |     2.0000 |
+| Karthik                              |     2.0000 |
+| Shilpa                               |  2000.0000 |
+| Shiv                                 |    69.2000 |
+| Suman                                |   100.0000 |
+| Rahul                                |   100.0000 |
+| Shilpa                               |   100.0000 |
+| Nehru Ferguson                       |   100.0000 |
+| Brenden Joyner                       |   100.0000 |
+| Debra Zamora                         |    90.0000 |
+| Kyle Faulkner                        |   100.0000 |
+| Brielle Burns                        |    50.0000 |
+| Mara Briggs                          |   950.5000 |
+| Nasim Meyers                         |    12.0000 |
+| Tucker Wilder                        |    12.0000 |
+| Nasim Meyers                         |    12.0000 |
+| Tucker Wilder                        |    12.0000 |
+| Uta Howard                           |    12.0000 |
+| Cedric Blackburn                     |    12.0000 |
+| camerie                              |   349.1000 |
+| Nicole                               |   650.0000 |
+| Sonia Carey                          |    10.0000 |
+| Brielle Burns                        |    50.0000 |
+| Mara Briggs                          |   599.7500 |
+| Daphne Byrd                          |  1500.0000 |
+| Nora Gould                           |    50.0000 |
+| Judith Wilder                        |    50.0000 |
+| Portia Workman                       |   286.8400 |
+| Brielle Burns                        |    50.0000 |
+| Mara Briggs                          |   599.7500 |
+| Daphne Byrd                          |  1500.0000 |
+| Nora Gould                           |    50.0000 |
+| Judith Wilder                        |    50.0000 |
+| Portia Workman                       |   813.1600 |
+| Melodie Dickson                      |    22.0000 |
+| Melodie Dickson                      |    22.0000 |
+| Melodie Dickson                      |   100.0000 |
+| Quail Franco                         |    50.0000 |
+| Quail Franco                         |    50.0000 |
+| Quail Franco                         |    50.0000 |
+| Philip Lawrence                      |    24.0000 |
+| Nicole                               |   850.0000 |
+| Nicole                               |   850.0000 |
+| Snehith                              |   200.0000 |
+| Shreyas                              |   150.0000 |
+| Ferbin                               |   200.0000 |
+| Amal                                 |   200.0000 |
+| Snehith lal                          |   150.0000 |
+| Ferbin                               |   200.0000 |
+| Twinkle                              |   150.0000 |
+| Snehith                              |   200.0000 |
+| Shreyas                              |   150.0000 |
+| Ferbin                               |   200.0000 |
+| Amal                                 |   200.0000 |
+| Snehith lal                          |   150.0000 |
+| Ferbin                               |   200.0000 |
+| Twinkle                              |   150.0000 |
+| Snehith                              |     5.0000 |
+| Shreyas                              |    10.0000 |
+| Ferbin                               |     5.0000 |
+| Amal                                 |     5.0000 |
+| Vinod                                |     5.0000 |
+| Ferbin                               |     5.0000 |
+| Prashu                               |     5.0000 |
+| Shadil c                             |    15.0000 |
+| Nimitha                              |    15.0000 |
+| Rakesh                               |    10.0000 |
+| Snehith lal                          |    10.0000 |
+| Ferbin                               |     5.0000 |
+| Twinkle                              |    10.0000 |
+| Suman                                |   100.1000 |
+| Appu                                 |     5.0000 |
+| Snehith lal                          |    10.0000 |
+| Ferbin                               |     5.0000 |
+| Vinod                                |    50.0000 |
+| Snehith la                           |    50.0000 |
+| Ferbin                               |    50.0000 |
+| Twinkle                              |    50.0000 |
+| Prashu                               |    50.0000 |
+| Shadil c                             |    50.0000 |
+| Nimitha                              |    50.0000 |
+| Nagaveni                             |    50.0000 |
+| Rakesh                               |    50.0000 |
+| Vinod                                |   200.0000 |
+| Snehith la                           |   200.0000 |
+| Ferbin                               |   200.0000 |
+| Twinkle                              |   200.0000 |
+| Prashu                               |   200.0000 |
+| Shadil c                             |   200.0000 |
+| Nimitha                              |   200.0000 |
+| Nagaveni                             |   200.0000 |
+| Rakesh                               |   200.0000 |
+| Shreyas s                            |    50.0000 |
+| Shreyas s                            |   200.0000 |
++--------------------------------------+------------+
+1023 rows in set (0.015 sec)
+
+MariaDB [assignment]> 
+
+

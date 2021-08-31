@@ -1,0 +1,81 @@
+ 3) show name of day of absence for student, name of teacher who marked absent
+
+MariaDB [assignment]> select CONCAT(students.first_name, " ", students.last_name) AS Name,  date_format(subject_leaves.created_at, '%W ') AS Date, CONCAT(employees.first_name," ",employees.last_name) AS Marked_Teacher from students inner join subject_leaves on students.id = subject_leaves.student_id inner join employees on subject_leaves.employee_id = employees.id inner join subject_leaves_teachers on employees.id = subject_leaves_teachers.employee_id  where students.school_id = 8 group by Name;
++------------------------------------+------------+---------------------+
+| Name                               | Date       | Marked_Teacher      |
++------------------------------------+------------+---------------------+
+| Aiko Nielsen                       | Friday     | Teena               |
+| Akash A                            | Thursday   | Cassidy Rivers      |
+| Alana Burns                        | Friday     | Teena               |
+| Althea Hester                      | Friday     | Cassidy Rivers      |
+| asdasd                             | Wednesday  | Karthik             |
+| Ashton Reilly                      | Friday     | Teena               |
+| Aspen Harding                      | Friday     | Kim Mcdaniel        |
+| Athulya P                          | Wednesday  | Teena               |
+| Basia Carter                       | Wednesday  | Cassidy Rivers      |
+| batch transfer student             | Friday     | Youle               |
+| Baxter Preston                     | Thursday   | Cassidy Rivers      |
+| Belle Petty                        | Thursday   | Cassidy Rivers      |
+| Blossom Mckinney                   | Thursday   | Cassidy Rivers      |
+| Breanna Petty                      | Thursday   | Youle               |
+| Brett Miller                       | Wednesday  | Jena Lane           |
+| Brielle Burns                      | Thursday   | Arden Guzman        |
+| Byron Pace                         | Thursday   | Youle               |
+| Cairo Barber                       | Thursday   | Youle               |
+| Charles Webster                    | Friday     | Declan Simpson      |
+| Clinton Cruz                       | Wednesday  | Carla Vang          |
+| Clio Castaneda                     | Friday     | Youle               |
+| Colby Stokes                       | Friday     | Youle               |
+| Cooper Robinson                    | Thursday   | Youle               |
+| Deanna Guerrero                    | Thursday   | Cassidy Rivers      |
+| Declan Carroll                     | Thursday   | Youle               |
+| Deepak Mohan                       | Thursday   | Cassidy Rivers      |
+| dsdsa                              | Wednesday  | Karthik             |
+| Elvis Savage                       | Friday     | Cassidy Rivers      |
+| Evan Vinson pand ram Kinney Vinson | Friday     | Cassidy Rivers      |
+| Geoffrey Hayden                    | Thursday   | Cassidy Rivers      |
+| Germane Atkins                     | Thursday   | Youle               |
+| Gopika Gopalan                     | Thursday   | Cassidy Rivers      |
+| Haritha                            | Thursday   | Ayush               |
+| Herman Kelley                      | Friday     | Youle               |
+| Holly Good                         | Thursday   | Youle               |
+| Hope Tate                          | Tuesday    | Kim Mcdaniel        |
+| Ivana Battle                       | Friday     | Youle               |
+| Jameson Moody                      | Monday     | Cassidy Rivers      |
+| Kendall Luna                       | Thursday   | Carla Vang          |
+| Kim Nolan                          | Friday     | Cassidy Rivers      |
+| Kripa                              | Thursday   | Ayush               |
+| Kyle Faulkner                      | Friday     | Anastasia Gillespie |
+| Lesley Casey                       | Friday     | Youle               |
+| Levi Crosby                        | Friday     | Youle               |
+| Lyle Flores                        | Thursday   | Youle               |
+| Madison Vinson                     | Thursday   | Youle               |
+| Mufeedah Muhammed                  | Thursday   | Karthik             |
+| Nehru Ferguson                     | Tuesday    | Carla Vang          |
+| Pankaj raj                         | Wednesday  | Karthik             |
+| Portia Workman                     | Thursday   | Arden Guzman        |
+| Quinn Kirk                         | Friday     | Youle               |
+| Rae Thompson                       | Thursday   | Youle               |
+| Ray Whitfield                      | Thursday   | Youle               |
+| Raymond Kemp                       | Thursday   | Youle               |
+| rocky dwane smith john             | Thursday   | Cassidy Rivers      |
+| Rocky s                            | Thursday   | Cassidy Rivers      |
+| Ronan Johnston                     | Friday     | Cassidy Rivers      |
+| Ryan Abbott                        | Tuesday    | Carla Vang          |
+| Shad Chandler                      | Thursday   | Youle               |
+| Shana Duran                        | Friday     | Cassidy Rivers      |
+| Shilpa                             | Thursday   | Ayush               |
+| Sneha S                            | Thursday   | Athul Raj           |
+| Spoorthi                           | Friday     | Karthik             |
+| Sreeshanth                         | Friday     | Karthik             |
+| Stuart Bray                        | Friday     | Anastasia Gillespie |
+| Uriah Sears                        | Friday     | Kim Mcdaniel        |
+| Ursula Graves                      | Friday     | Declan Simpson      |
+| Venus Sweet                        | Thursday   | Youle               |
+| Yolanda Arnold                     | Friday     | Kim Mcdaniel        |
++------------------------------------+------------+---------------------+
+69 rows in set (0.025 sec)
+
+MariaDB [assignment]> 
+
+

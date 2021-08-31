@@ -1,0 +1,105 @@
+ 2) show count of subject leaves for students 
+ 
+MariaDB [assignment]> select CONCAT(students.first_name, " ", students.last_name) AS Name, count(subject_leaves.created_at) AS Leaves from students inner join subject_leaves on students.id = subject_leaves.student_id where students.school_id = 8 group by Name;
++------------------------------------+--------+
+| Name                               | Leaves |
++------------------------------------+--------+
+| Aiko Nielsen                       |     33 |
+| Akash A                            |      4 |
+| Alana Burns                        |     24 |
+| Alexander Snyder                   |      1 |
+| Althea Hester                      |     20 |
+| asdasd                             |      2 |
+| Ashton Reilly                      |     17 |
+| Aspen Harding                      |      8 |
+| Athulya P                          |      1 |
+| Basia Carter                       |      3 |
+| batch transfer student             |     14 |
+| Baxter Preston                     |      5 |
+| Beatrice Rowe                      |      1 |
+| Belle Petty                        |      5 |
+| Black Widow                        |      6 |
+| Blossom Mckinney                   |      3 |
+| Breanna Petty                      |      2 |
+| Brett Miller                       |     33 |
+| Brielle Burns                      |      7 |
+| Byron Pace                         |      3 |
+| Cairo Barber                       |      2 |
+| Captain America                    |      3 |
+| Chanda Santana                     |      1 |
+| Charles Webster                    |     10 |
+| Clayton Moody                      |      1 |
+| Clinton Cruz                       |      5 |
+| Clio Castaneda                     |     10 |
+| Colby Stokes                       |     10 |
+| Colton Holcomb                     |      2 |
+| Cooper Robinson                    |      2 |
+| Damon Wilcox                       |      4 |
+| Deanna Guerrero                    |      2 |
+| Declan Carroll                     |      2 |
+| Deepak Mohan                       |      1 |
+| dsdsa                              |      1 |
+| Elvis Savage                       |     20 |
+| Evan Vinson pand ram Kinney Vinson |     11 |
+| Ferbin                             |      6 |
+| Geoffrey Hayden                    |      1 |
+| Germane Atkins                     |      2 |
+| Gopika Gopalan                     |      2 |
+| Graiden Quinn                      |      2 |
+| Haritha                            |      2 |
+| Hawkeye                            |      1 |
+| Herman Kelley                      |      8 |
+| Herman Little                      |      2 |
+| Holly Good                         |      2 |
+| Hope Tate                          |      1 |
+| IronMan                            |      1 |
+| Ivana Battle                       |      8 |
+| Ivory Sparks                       |      1 |
+| Jameson Moody                      |      1 |
+| Judith Wilder                      |      1 |
+| Kendall Luna                       |      2 |
+| Kim Nolan                          |      9 |
+| Kripa                              |      3 |
+| Kyle Faulkner                      |      2 |
+| Lesley Casey                       |      9 |
+| Levi Crosby                        |      9 |
+| Lucas Barnes                       |      3 |
+| Lyle Flores                        |      2 |
+| Madison Vinson                     |      2 |
+| Mufeedah Muhammed                  |      2 |
+| Nagaveni                           |      1 |
+| Nehru Ferguson                     |      9 |
+| Nora Gould                         |      1 |
+| Pankaj raj                         |      1 |
+| Portia Workman                     |      1 |
+| Quinn Kirk                         |      8 |
+| Rae Thompson                       |      2 |
+| Rahul                              |      4 |
+| Ray Whitfield                      |      2 |
+| Raymond Kemp                       |      2 |
+| Remedios Noel                      |      1 |
+| rocky dwane smith john             |      1 |
+| Rocky s                            |      1 |
+| Ronan Johnston                     |      6 |
+| Ryan Abbott                        |     11 |
+| Shad Chandler                      |      2 |
+| Shana Duran                        |      3 |
+| Shilpa                             |      1 |
+| Sneha S                            |      1 |
+| Spoorthi                           |     12 |
+| Sreeshanth                         |      8 |
+| Stuart Bray                        |      2 |
+| Suman                              |      4 |
+| Thor                               |      1 |
+| Tobias Mccullough                  |      1 |
+| Uriah Sears                        |     11 |
+| Ursula Graves                      |      4 |
+| Venus Sweet                        |      2 |
+| Wylie Salazar                      |      1 |
+| Yolanda Arnold                     |      8 |
++------------------------------------+--------+
+93 rows in set (0.023 sec)
+
+MariaDB [assignment]> 
+
+

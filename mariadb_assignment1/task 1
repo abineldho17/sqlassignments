@@ -1,0 +1,55 @@
+1.Show the student count for each active school.
+
+select schools.name,count(studenid)   from schools left join students on students.school_id = schools.id where schools.is_deleted=0 group by schools.id ;
++------------------------------------+--------------------+
+| name                               | count(students.id) |
++------------------------------------+--------------------+
+| Navin                              |                 53 |
+| Utkarsh                            |                 53 |
+| Navin                              |                 53 |
+| Navin                              |                 53 |
+| Navin                              |                 53 |
+| Navin                              |                 53 |
+| Foradian Institute of Technology   |                369 |
+| Support                            |                 53 |
+| KIIT                               |                 53 |
+| Ajit Vidya Mandir                  |                 53 |
+| GG School                          |                 52 |
+| Navin                              |                 53 |
+| Utkarsh                            |                 53 |
+| Training                           |                  0 |
+| SSRVM                              |                  0 |
+| SSRVM                              |                  0 |
+| SSRVM New                          |                  0 |
+| SSRVM 2                            |                  0 |
+| SSRVM 3                            |                 53 |
+| Training                           |                 53 |
+| New Test                           |                 53 |
+| New Test 2                         |                 53 |
+| iQuad Test                         |                 61 |
+| Foradian                           |                 53 |
+| foradian                           |                 53 |
+| ass                                |                 53 |
+| Foradian                           |                 56 |
+| Foradian                           |                  0 |
+| Foradian                           |                  0 |
+| Foradian                           |                  0 |
+| Foradian                           |                 56 |
+| Foradian                           |                 58 |
+| SABUJ ABUJH SHISHU ANGAN           |                 56 |
+| Foradian Institute of Technology   |                 56 |
+| SKL Public School                  |                 58 |
+| St.Mary's College                  |                 57 |
+| sreeshanth                         |                  4 |
+| droid                              |                  0 |
+| Foradian1                          |                  0 |
+| test                               |                  0 |
+| Regression1                        |                  0 |
+| sale                               |                  0 |
++------------------------------------+--------------------+
+42 rows in set (0.006 sec)
+
+MariaDB [assignment]> 
+
+
+

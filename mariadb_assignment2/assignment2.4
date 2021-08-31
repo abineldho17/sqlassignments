@@ -1,0 +1,10 @@
+4) write search query for all students whose name has string 'aman' and has some upaid fees (with or without fine)
+
+MariaDB [assignment]> select CONCAT(students.first_name,' ',students.middle_name,' ',students.last_name) AS Name from students inner join finance_fees on students.id = finance_fees.student_id inner join finance_fee_collections on finance_fees.fee_collection_id = finance_fee_collections.id where (students.first_name like '%aman%' or students.middle_name like '%aman%' or students.last_name like '%aman%') and students.school_id = 8 and finance_fees.is_paid = 0 group by students.id=8;
++------------------------------+
+| Name                         |
++------------------------------+
+| Chanda Amanda Morris Wallace |
++------------------------------+
+1 row in set (0.007 sec)
+

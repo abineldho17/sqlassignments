@@ -1,0 +1,364 @@
+ 9) show student name, total amount to pay and total fine amount (as of today) for all students who has not completely paid
+MariaDB [assignment]> select CONCAT(students.first_name,' ',students.middle_name,' ',students.last_name) as Student_Name,sum(finance_fees.balance) as balance,IFNULL(sum(IF(fine_rules.is_amount,fine_rules.fine_amount,(finance_fees.particular_total*fine_rules.fine_amount/100))), 0.0) as fine from students inner join finance_fees on finance_fees.student_id=students.id inner join finance_fee_collections on finance_fee_collections.id=finance_fees.fee_collection_id left join fines on fines.id=finance_fee_collections.fine_id left join fine_rules on fine_rules.fine_id=fines.id and fine_rules.id= ( select id from fine_rules as fine where fine.fine_id=fines.id and fine.fine_days <= DATEDIFF(finance_fee_collections.due_date,CURDATE()) order by fine.fine_days desc limit 1) where students.school_id=8 group by students.id;
++----------------------------------------------------------+-------------+------------------+
+| Student_Name                                             | balance     | fine             |
++----------------------------------------------------------+-------------+------------------+
+| Aneez  Azeez                                             |  20000.0000 |   0.000000000000 |
+| Thomas  Roy                                              |  44793.7000 |   0.000000000000 |
+| Augustus  Brave                                          |  46891.6000 |   0.000000000000 |
+| Deepak  Mohan                                            | 643863.7800 |   0.000000000000 |
+| Thriveni  P K                                            |  81391.6000 |   0.000000000000 |
+| Revathi  Mol                                             |  33091.6000 |   0.000000000000 |
+| Karunya  k                                               |  46839.1000 |   0.000000000000 |
+| Harini  P                                                | 653720.2800 |   0.000000000000 |
+| Akash  A                                                 | 662546.8800 |   0.000000000000 |
+| Mohan  M                                                 | 665179.8800 |   0.000000000000 |
+| Mani  K                                                  | 665127.3800 |   0.000000000000 |
+| Kripa  T                                                 | 665179.8800 |   0.000000000000 |
+| Gopika  Gopalan                                          | 665127.3800 |   0.000000000000 |
+| Mufeedah  Muhammed                                       | 665127.3800 |   0.000000000000 |
+| Nabeena  Ahammed                                         | 665127.3800 |   0.000000000000 |
+| Neeraja  P                                               |  81391.6000 |   0.000000000000 |
+| Vani  V                                                  |  74491.6000 |   0.000000000000 |
+| Sankitha  S                                              |  81339.1000 |   0.000000000000 |
+| Mary  Reena                                              |  92906.7000 | 180.000000000000 |
+| Roy  Thomas                                              |  81339.1000 |   0.000000000000 |
+| Rithin  Raveendran                                       |  81391.6000 |   0.000000000000 |
+| Mrithul  Mohan                                           |  81391.6000 |   0.000000000000 |
+| Gopan  G                                                 |  49139.1000 |   0.000000000000 |
+| Steve  Clive                                             |  49191.6000 |   0.000000000000 |
+| Bill   Gates                                             |  46891.6000 |   0.000000000000 |
+| Manu  SV                                                 |  49139.1000 |   0.000000000000 |
+| Mini  M                                                  |  49191.6000 |   0.000000000000 |
+| Sneha  S                                                 |  49191.6000 |   0.000000000000 |
+| Chandrika  C                                             |  49139.1000 |   0.000000000000 |
+| Priya  P                                                 |  49191.6000 |   0.000000000000 |
+| Peter  Clive                                             |  46891.6000 |   0.000000000000 |
+| Manohoran  K                                             |  46839.1000 |   0.000000000000 |
+| Kebir  K                                                 |  46891.6000 |   0.000000000000 |
+| Mohith  K                                                |  46891.6000 |   0.000000000000 |
+| Farhana  M                                               |  46839.1000 |   0.000000000000 |
+| Athulya  P                                               |  46891.6000 |   0.000000000000 |
+| Sreekala  K                                              |  46839.1000 |   0.000000000000 |
+| Sreelatha  V                                             |  46839.1000 |   0.000000000000 |
+| Aboobacker  A                                            |  36891.6000 |   0.000000000000 |
+| Karthik  K                                               |  44539.1000 |   0.000000000000 |
+| Praveen  P                                               |  46891.6000 |   0.000000000000 |
+| Preethi  P                                               |  46839.1000 |   0.000000000000 |
+| Priya  A                                                 |  46891.6000 |   0.000000000000 |
+| Marjana  Farhan                                          |  46839.1000 |   0.000000000000 |
+| Fathima  P                                               |  46839.1000 |   0.000000000000 |
+| Jack                                                     |  28991.6000 |   0.000000000000 |
+| Jill                                                     |  28439.1000 |   0.000000000000 |
+| John                                                     |  28491.6000 |   0.000000000000 |
+| Jessy                                                    |  28991.6000 |   0.000000000000 |
+| Jenni                                                    |  28991.6000 |   0.000000000000 |
+| AADI  RAM MAHESHWARI                                     |  36891.6000 |   0.000000000000 |
+| Kim Idola Grant Nolan                                    | 220439.1000 |   0.000000000000 |
+| Evan Vinson pand ram Brenna Vinson chandra Kinney Vinson | 476491.6000 |   0.000000000000 |
+| Shana Cedric Saunders Duran                              | 412491.6000 |   0.000000000000 |
+| Ronan Carolyn Roach Johnston                             | 492491.6000 |   0.000000000000 |
+| Shelley Eleanor Edwards Diaz                             |  33189.1000 |   0.000000000000 |
+| Roary Fay Franco Macdonald                               |  33189.1000 |   0.000000000000 |
+| Elvis Seth Mason Savage                                  | 412439.1000 |   0.000000000000 |
+| shiv sagar    s                                          | 222224.3700 |   0.000000000000 |
+| Brett Erica Tate Miller                                  |  28491.6000 |   0.000000000000 |
+| Odessa Clementine Wolf Carver                            |  28491.6000 |   0.000000000000 |
+| Harrison Honorato Morgan Hood                            | 662879.8800 |   0.000000000000 |
+| Wilma Barrett Ramos Britt                                |  79091.6000 |   0.000000000000 |
+| Nero Kermit Waters Lawson                                |  44591.6000 |   0.000000000000 |
+| Lucian Erica Hogan Hewitt                                |  44591.6000 |   0.000000000000 |
+| Aretha Alfonso Lee Tate                                  |  33919.1400 |   0.000000000000 |
+| Macey Tiger Dawson Randolph                              |  71084.8400 | 180.000000000000 |
+| Candace Kelsey Franks Powell                             |  28491.6000 |   0.000000000000 |
+| Gabriel Anjolie Harmon Navarro                           |  30814.1000 |   0.000000000000 |
+| Sybil Fay Craig Hubbard                                  |  28439.1000 |   0.000000000000 |
+| Lillith Wynne Santana Aguirre                            |  74084.8400 | 180.000000000000 |
+| rocky  dwane smith john                                  | 662879.8800 |   0.000000000000 |
+| Blaze Sebastian Langley Mccarthy                         |  74557.3400 | 180.000000000000 |
+| Dara Adrienne Caldwell Hale                              |  28439.1000 |   0.000000000000 |
+| Upton Joy Gillespie Park                                 |  28439.1000 |   0.000000000000 |
+| Althea Hoyt Freeman Hester                               | 413867.8400 | 180.000000000000 |
+| Natalie Oprah Talley Kerr                                |  74557.3400 | 180.000000000000 |
+| Neve Aurora Jackson Daugherty                            |  41698.9400 | 180.000000000000 |
+| ناوی بەکارهێنان Diana Glover Carson                      |  28439.1000 |   0.000000000000 |
+| Deanna Ronan Velasquez Guerrero                          |  38991.6000 |   0.000000000000 |
+| Geoffrey Stacey Garcia Hayden                            |  34191.6000 |   0.000000000000 |
+| Wylie Catherine Sanders Salazar                          |  28439.1000 |   0.000000000000 |
+| Jameson Jane Delgado Moody                               |  34191.6000 |   0.000000000000 |
+| Graiden Sonya Mueller Quinn                              |  28491.6000 |   0.000000000000 |
+| Marcia Blaine Valdez Campos                              |  28491.6000 |   0.000000000000 |
+| Colby Drake Small Stokes                                 |  28491.6000 |   0.000000000000 |
+| Clio Rhiannon Marquez Castaneda                          |  28491.6000 |   0.000000000000 |
+| Scarlett Quamar Joyner Steele                            |  28491.6000 |   0.000000000000 |
+| mike  tyson                                              |  28491.6000 |   0.000000000000 |
+| Ashton Alexa Armstrong Reilly                            |  28491.6000 |   0.000000000000 |
+| Aiko Troy Richardson Nielsen                             |  28491.6000 |   0.000000000000 |
+| Herman Lucius Savage Kelley                              |  28491.6000 |   0.000000000000 |
+| Akeem Damian Rowland Emerson                             |  28491.6000 |   0.000000000000 |
+| Alana Kirk Decker Burns                                  |  28491.6000 |   0.000000000000 |
+| Lesley Xantha Boyd Casey                                 |  28491.6000 |   0.000000000000 |
+| Ivana Noble Johnston Battle                              |  28491.6000 |   0.000000000000 |
+| Quinn Heather Hamilton Kirk                              |  28439.1000 |   0.000000000000 |
+| Alexander Brenda Jefferson Snyder                        |  28491.6000 |   0.000000000000 |
+| Zane Sheila Giles Sanford                                |  26341.2000 |   0.000000000000 |
+| Macy Xanthus Wheeler Daniels                             |  28491.6000 |   0.000000000000 |
+| Emerald Neville Hoffman Flowers                          |  28491.6000 |   0.000000000000 |
+| Bo Evelyn Dawson Chang                                   |  28439.1000 |   0.000000000000 |
+| Ronan Cade Williams Wagner                               |  28491.6000 |   0.000000000000 |
+| Evangeline Upton Strong Morse                            |  28439.1000 |   0.000000000000 |
+| Nelle Lacota Hull Ashley                                 |  28439.1000 |   0.000000000000 |
+| Chandler Aurelia Norton Sanford                          |  28491.6000 |   0.000000000000 |
+| Herman Evelyn Smith Maddox                               |  28491.6000 |   0.000000000000 |
+| Bruno Marny Mccullough Joyner                            |  28491.6000 |   0.000000000000 |
+| Paki Molly Sanchez Bernard                               |  28491.6000 |   0.000000000000 |
+| batch transfer student                                   |  28491.6000 |   0.000000000000 |
+| Levi Zephania Frye Crosby                                |  28491.6000 |   0.000000000000 |
+| MacKensie Dean Bennett Hunter                            |  28439.1000 |   0.000000000000 |
+| Josephine Bianca Mccarthy Hebert                         |  28491.6000 |   0.000000000000 |
+| Petra Imani Oliver Jefferson                             |  28439.1000 |   0.000000000000 |
+| Tatiana Quemby Rios Robles                               |  28491.6000 |   0.000000000000 |
+| Beatrice Jael Ramos Rowe                                 |  28491.6000 |   0.000000000000 |
+| sagar                                                    |  28491.6000 |   0.000000000000 |
+| Iola Holmes Mayo Rios                                    |  28491.6000 |   0.000000000000 |
+| rocky                                                    | 202191.6000 |   0.000000000000 |
+| henry  s                                                 |  37991.6000 |   0.000000000000 |
+| Jamalia Leah Dunlap Clemons                              |  64934.8400 | 180.000000000000 |
+| Rocky  s                                                 |  86391.6000 |   0.000000000000 |
+| Ignatius Irene Barnes Anderson                           |  65557.3400 | 180.000000000000 |
+| Herman Leigh Byers Little                                |  28491.6000 |   0.000000000000 |
+| Zena Yeo Livingston Hurley                               |  28491.6000 |   0.000000000000 |
+| Leila Alexa Stevenson Middleton                          |  28439.1000 |   0.000000000000 |
+| Albert H Lio                                             |  24672.9000 | 180.000000000000 |
+| Arunraj  E                                               |  64926.7400 | 180.000000000000 |
+| Appu                                                     | 114023.7400 | 180.000000000000 |
+| Kelsey Nell Villarreal Castro                            |  28491.6000 |   0.000000000000 |
+| Burke Arden Workman Alford                               |  28491.6000 |   0.000000000000 |
+| Sylvester Grant Herman Barber                            |  28491.6000 |   0.000000000000 |
+| Damon Dustin Williamson Wilcox                           |  28491.6000 |   0.000000000000 |
+| Rae Chase Strong Thompson                                |  28491.6000 |   0.000000000000 |
+| Lyle Dante Prince Flores                                 |  28439.1000 |   0.000000000000 |
+| Declan Haley Carr Carroll                                |  28491.6000 |   0.000000000000 |
+| Cairo Evan Dorsey Barber                                 |  28439.1000 |   0.000000000000 |
+| Belle Hayley Robles Petty                                |  28439.1000 |   0.000000000000 |
+| Byron Ciaran Ashley Pace                                 |  28491.6000 |   0.000000000000 |
+| Baxter Sigourney Shaw Preston                            |  28491.6000 |   0.000000000000 |
+| Blossom Daryl Wolfe Mckinney                             |  28439.1000 |   0.000000000000 |
+| Shad Axel Deleon Chandler                                |  28491.6000 |   0.000000000000 |
+| Madison Michelle Rios Vinson                             |  28491.6000 |   0.000000000000 |
+| Ray Talon Kemp Whitfield                                 |  28439.1000 |   0.000000000000 |
+| Holly Reed Davidson Good                                 |  28491.6000 |   0.000000000000 |
+| Breanna Burke Mack Petty                                 |  28439.1000 |   0.000000000000 |
+| Cooper Coby Cummings Robinson                            |  28491.6000 |   0.000000000000 |
+| Germane Jameson Butler Atkins                            |  28491.6000 |   0.000000000000 |
+| Venus Axel Spence Sweet                                  |  28491.6000 |   0.000000000000 |
+| Raymond Robert Marquez Kemp                              |  28491.6000 |   0.000000000000 |
+| Illana Ria Duffy Henderson                               |  28491.6000 |   0.000000000000 |
+| Tobias Winter Wilkerson Mccullough                       |  29894.1000 |   0.000000000000 |
+| Lucas Vivien Henson Barnes                               |  29971.6000 |   0.000000000000 |
+| Ivory Ronan Conrad Payne                                 |  28439.1000 |   0.000000000000 |
+| Pandora Tatum Levine Gomez                               |  28439.1000 |   0.000000000000 |
+| Remedios Carolyn Mcknight Noel                           |  28491.6000 |   0.000000000000 |
+| Chanda Emerson Dickerson Santana                         |  28439.1000 |   0.000000000000 |
+| Clayton Xyla Gilmore Moody                               |  28439.1000 |   0.000000000000 |
+| Sachi                                                    |  28491.6000 |   0.000000000000 |
+| Christine Mira Becker Kane                               |  65557.3400 | 180.000000000000 |
+| Srilakshmi                                               |  51849.6000 |   0.000000000000 |
+| Ursula Kelsey Wilder Graves                              |  30066.6000 |   0.000000000000 |
+| Charles Tarik Randolph Webster                           |  28491.6000 |   0.000000000000 |
+| Clinton Upton Roach Cruz                                 |  28491.6000 |   0.000000000000 |
+| Ryan Ariel Mayo Abbott                                   |  28439.1000 |   0.000000000000 |
+| Kendall Amber Watts Luna                                 |  28491.6000 |   0.000000000000 |
+| Baxter Stella Pacheco Pierce                             |  28491.6000 |   0.000000000000 |
+| Nehru Shea Schneider Ferguson                            |  20000.0000 |   0.000000000000 |
+| Alexa Melvin Hansen Estrada                              |  28439.1000 |   0.000000000000 |
+| Hashim Chloe Odonnell English                            |  28439.1000 |   0.000000000000 |
+| Kyle Faith Johns Faulkner                                |  20000.0000 |   0.000000000000 |
+| Stuart Duncan Holden Bray                                |  28491.6000 |   0.000000000000 |
+| Talon Zeus Lester Trevino                                |  31290.6000 |   0.000000000000 |
+| Damon Christian Fuentes Gallegos                         |  32690.6000 |   0.000000000000 |
+| Colton Caldwell Middleton Holcomb                        |  32186.6000 |   0.000000000000 |
+| Phyllis Neville Odom Moses                               |  33890.6000 |   0.000000000000 |
+| Brianna Georgia Reilly Brewer                            |  28491.6000 |   0.000000000000 |
+| Cassidy Charlotte Booth Berger                           |  28439.1000 |   0.000000000000 |
+| Olga Mariam Frye Johnson                                 |  31290.6000 |   0.000000000000 |
+| Laurel Reuben Rodgers Harper                             |  31290.6000 |   0.000000000000 |
+| Yolanda Abel Pate Arnold                                 |  36492.7800 |   0.000000000000 |
+| Aspen Marny Hyde Harding                                 |  39159.8400 |   0.000000000000 |
+| Uriah Alexander Albert Sears                             |  39107.3400 |   0.000000000000 |
+| Hope Serina Donaldson Tate                               |  33825.7200 |   0.000000000000 |
+| Kessie Paula Williams Adkins                             |  42849.7400 | 180.000000000000 |
+| Risa Cameron Turner Battle                               |  28491.6000 |   0.000000000000 |
+| Jessica Keiko Haney Hardin                               |  28491.6000 |   0.000000000000 |
+| Leah Lael Harrison Guzman                                |  28491.6000 |   0.000000000000 |
+| Bell Jackson Valencia Collier                            |  28491.6000 |   0.000000000000 |
+| Malachi Megan Duncan Mcgowan                             |  21097.9000 |   0.000000000000 |
+| Benedict Dorian Jensen Holland                           |  28439.1000 |   0.000000000000 |
+| Meghan Fallon Henderson Fulton                           |  28491.6000 |   0.000000000000 |
+| Madaline Brock Baldwin Anthony                           |  28439.1000 |   0.000000000000 |
+| Rosalyn Yasir Chaney Kramer                              |  28491.6000 |   0.000000000000 |
+| Diya                                                     |  28491.6000 |   0.000000000000 |
+| Diya                                                     |  30791.6000 |   0.000000000000 |
+| Jelani Lana Kennedy Robertson                            |  28491.6000 |   0.000000000000 |
+| Shilpa                                                   |  28491.6000 |   0.000000000000 |
+| Kripa                                                    |  28491.6000 |   0.000000000000 |
+| Haritha                                                  |  28491.6000 |   0.000000000000 |
+| Karthik                                                  |  28491.6000 |   0.000000000000 |
+| Calvin Ryder Emerson Morgan                              |  28491.6000 |   0.000000000000 |
+| Mark Daniel Guzman Watson                                |  28491.6000 |   0.000000000000 |
+| Hop Reuben Tanner Strickland                             |  37610.2800 |   0.000000000000 |
+| Alexandra Rosalyn Massey Dickson                         |  28439.1000 |   0.000000000000 |
+| Ingrid Ginger Richards Clay                              |  28491.6000 |   0.000000000000 |
+| Debra Roth Riggs Zamora                                  |  27351.6000 |   0.000000000000 |
+| Kenyon Trevor Gallegos Wolf                              |  28491.6000 |   0.000000000000 |
+| Matthew Kylee Peters Guy                                 |  28491.6000 |   0.000000000000 |
+| Chanda Amanda Morris Wallace                             |  28491.6000 |   0.000000000000 |
+| Lucian Zachery Rich Frye                                 |  28491.6000 |   0.000000000000 |
+| Oren Cole Camacho Kim                                    |  28491.6000 |   0.000000000000 |
+| Brenden Quon Buckley Joyner                              |  20000.0000 |   0.000000000000 |
+| Cassandra Bertha Merrill Snow                            |  28491.6000 |   0.000000000000 |
+| Shafeer  Kumar                                           |  28491.6000 |   0.000000000000 |
+| Walter Brooke Beasley Raymond                            |  28439.1000 |   0.000000000000 |
+| Basia Keelie Garza Carter                                |  24491.6000 | 180.000000000000 |
+| Pearl Xandra Hendrix Moses                               |  28439.1000 |   0.000000000000 |
+| Roth Amena Tillman Walsh                                 |  28491.6000 |   0.000000000000 |
+| Katelyn Astra Burnett Ferguson                           |  28439.1000 |   0.000000000000 |
+| Iona Shay Hoffman Lambert                                |  29602.6000 |   0.000000000000 |
+| Suman                                                    |  19424.4000 |   0.000000000000 |
+| Rahul                                                    |  20000.0000 |   0.000000000000 |
+| Spoorthi                                                 |  20000.0000 |   0.000000000000 |
+| Sreeshanth                                               |  24295.8000 |   0.000000000000 |
+| Shilpa                                                   |  20000.0000 |   0.000000000000 |
+| Shiv                                                     |  30374.2500 |   0.000000000000 |
+| Ivory Rahim Tyler Sparks                                 |  20100.0000 |   0.000000000000 |
+| Noel Audra Holder Wallace                                |  20100.0000 |   0.000000000000 |
+| Declan Lara Grant Jenkins                                |  20100.0000 |   0.000000000000 |
+| Sreeshanth  Hebert                                       |  20000.0000 |   0.000000000000 |
+| Leilani Phillip Ware Bean                                |  20000.0000 |   0.000000000000 |
+| Quinn Quemby Nichols Faulkner                            |  20000.0000 |   0.000000000000 |
+| Brielle Madonna Ware Burns                               |  25879.3000 |   0.000000000000 |
+| Mara Xyla Beach Briggs                                   |  22811.5000 |   0.000000000000 |
+| Daphne Aiko Faulkner Byrd                                |  20367.5000 |   0.000000000000 |
+| Pankaj mutha raj                                         |  26000.0000 | 180.000000000000 |
+| Nora Dean Cohen Gould                                    |  23383.5000 |   0.000000000000 |
+| Judith Mechelle Richards Wilder                          |  20000.0000 |   0.000000000000 |
+| asdasd                                                   |  24439.0000 |   0.000000000000 |
+| dsdsa                                                    |  27439.0000 | 180.000000000000 |
+| Lysandra Danielle Ewing Rhodes                           |  26367.5000 | 180.000000000000 |
+| Portia Malik Vasquez Workman                             |  21343.5000 |   0.000000000000 |
+| stu                                                      |  27439.0000 | 180.000000000000 |
+| Indira Faith Mueller Holt                                |  20000.0000 |   0.000000000000 |
+| Kennan Quail Turner James                                |  20000.0000 |   0.000000000000 |
+| stud 1                                                   |  20000.0000 |   0.000000000000 |
+| stud 2                                                   |  26000.0000 | 180.000000000000 |
+| forad                                                    |  20000.0000 |   0.000000000000 |
+| sibling                                                  |  20000.0000 |   0.000000000000 |
+| camerie                                                  |  32094.4900 | 180.000000000000 |
+| Nicole                                                   |  30392.2000 | 180.000000000000 |
+| Sonia Stacy Sanders Carey                                |  29823.2000 | 180.000000000000 |
+| Melodie Gage Carr Dickson                                |  20367.5000 |   0.000000000000 |
+| Justina Uriah Johns Bush                                 |  21627.5000 |   0.000000000000 |
+| Quail Keelie Hampton Franco                              |  21818.5000 |   0.000000000000 |
+| Twinkle  Sandoval                                        |  20000.0000 |   0.000000000000 |
+| child1                                                   |  32092.2000 | 180.000000000000 |
+| test sib2                                                |  20000.0000 |   0.000000000000 |
+| S1                                                       |  32092.2000 | 180.000000000000 |
+| S2                                                       |  32092.2000 | 180.000000000000 |
+| t56                                                      |  32092.2000 | 180.000000000000 |
+| sne                                                      |  20000.0000 |   0.000000000000 |
+| aadis csz                                                |  20000.0000 |   0.000000000000 |
+| fee_due                                                  |  30394.2400 | 180.000000000000 |
+| Olivia Robert Sharp Sullivan                             |  20000.0000 |   0.000000000000 |
+| Snehith                                                  |  95973.9500 | 180.000000000000 |
+| Shreyas                                                  |  98710.2500 | 180.000000000000 |
+| Registration actived dada ds                             |  30394.2400 | 180.000000000000 |
+| Registration actived dada ds                             |  30394.2400 | 180.000000000000 |
+| check1234  da                                            |  30394.2400 | 180.000000000000 |
+| Ferbin                                                   |  96485.9500 | 180.000000000000 |
+| Shrudhin                                                 |  92020.5000 | 180.000000000000 |
+| Twinkle Solanki                                          |  92020.5000 | 180.000000000000 |
+| Prashu Modi M                                            |  92020.5000 | 180.000000000000 |
+| Rakesh                                                   |  92020.5000 | 180.000000000000 |
+| Nagaveni                                                 |  92020.5000 | 180.000000000000 |
+| Hijas                                                    |  92020.5000 | 180.000000000000 |
+| Navin                                                    |  26391.5000 | 180.000000000000 |
+| Student1                                                 |  27596.5000 | 180.000000000000 |
+| Check Sms  das                                           |  26367.5000 | 180.000000000000 |
+| Chec                                                     |  20000.0000 |   0.000000000000 |
+| Sib2                                                     |  26000.0000 | 180.000000000000 |
+| Sib4                                                     |  20000.0000 |   0.000000000000 |
+| Amal                                                     |  90065.9500 |   0.000000000000 |
+| Snehith  lal                                             |  53100.0000 | 180.000000000000 |
+| Ferbin                                                   |  77943.1500 | 180.000000000000 |
+| Shreyas S                                                |  72650.0000 | 180.000000000000 |
+| Twinkle sas                                              |  26739.7500 |   0.000000000000 |
+| Test Form  asd                                           |  27842.2000 | 180.000000000000 |
+| Vinod                                                    |  45300.0000 | 180.000000000000 |
+| Snehith  la                                              |  35168.0000 | 180.000000000000 |
+| Ferbin                                                   |   3000.0000 | 180.000000000000 |
+| Twinkle                                                  |  45445.0000 | 180.000000000000 |
+| Shreyas  s                                               |  55445.0000 | 180.000000000000 |
+| Prashu                                                   |  55450.0000 | 180.000000000000 |
+| Shadil  c                                                |  46881.5000 | 180.000000000000 |
+| Nimitha                                                  |  55210.0000 | 180.000000000000 |
+| Nagaveni                                                 |  44495.0000 | 180.000000000000 |
+| Rakesh                                                   |  39455.0000 | 180.000000000000 |
+| Arc1                                                     |  65863.0000 |   0.000000000000 |
+| Abc1                                                     |   1000.0000 |   0.000000000000 |
+| Flavia Brian Lynch Shepherd                              |   1000.0000 |   0.000000000000 |
+| David Hadley Richards Joyce                              |   1000.0000 |   0.000000000000 |
+| Ali Ivy Quinn Barrera                                    |   1000.0000 |   0.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| Test  F                                                  |   6000.0000 | 180.000000000000 |
+| SA  sa                                                   |   6000.0000 | 180.000000000000 |
+| Register  lasr                                           |   6000.0000 | 180.000000000000 |
+| Reg Check  xds                                           |   6000.0000 | 180.000000000000 |
+| Chloe Clinton Cantrell Campbell                          |   6000.0000 | 180.000000000000 |
+| Cassandra Bertha Merrill Snow                            |   6000.0000 | 180.000000000000 |
+| erwer  rer                                               |   6000.0000 | 180.000000000000 |
+| asdasd  asdasdasd                                        |   3000.0000 |   0.000000000000 |
+| dd  sd                                                   |   6000.0000 | 180.000000000000 |
+| Erasmus Iona Davenport Washington                        |   6000.0000 | 180.000000000000 |
+| Kiara Diana Leonard Berger                               |   6000.0000 | 180.000000000000 |
+| Jana Macaulay Ramos Hayden                               |   6000.0000 | 180.000000000000 |
+| Hillary Benedict Browning Barker                         |   6000.0000 | 180.000000000000 |
+| Avram Lesley Coleman Young                               |   6000.0000 | 180.000000000000 |
+| Nelle Audrey Gibbs Valentine                             |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
+| new dle                                                  |   6000.0000 | 180.000000000000 |
+| NULL                                                     |   6000.0000 | 180.000000000000 |
++----------------------------------------------------------+-------------+------------------+
+353 rows in set (0.030 sec)
+
+MariaDB [assignment]> 
+
+

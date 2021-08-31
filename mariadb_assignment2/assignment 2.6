@@ -1,0 +1,42 @@
+ 6) find all students who has atleast once made fee payment using online mode
+MariaDB [assignment]> select CONCAT(students.first_name,' ',students.last_name) AS Name,finance_transactions.payment_mode from students inner join finance_transactions on  finance_transactions.payee_id = students.id  where finance_transactions.payment_mode = "online Payment" and students.school_id = 8 group by Name;
+
++-------------------+----------------+
+| Name              | payment_mode   |
++-------------------+----------------+
+| Albert Lio        | Online Payment |
+| Althea Hester     | Online Payment |
+| Appu              | Online Payment |
+| Aretha Tate       | Online Payment |
+| Bill  Gates       | Online Payment |
+| Brett Miller      | Online Payment |
+| Brianna Brewer    | Online Payment |
+| Candace Powell    | Online Payment |
+| Charles Webster   | Online Payment |
+| Deanna Guerrero   | Online Payment |
+| Deepak Mohan      | Online Payment |
+| henry s           | Online Payment |
+| Herman Little     | Online Payment |
+| Jill              | Online Payment |
+| Karthik K         | Online Payment |
+| Kim Nolan         | Online Payment |
+| Macey Randolph    | Online Payment |
+| Melodie Dickson   | Online Payment |
+| mike tyson        | Online Payment |
+| Neve Daugherty    | Online Payment |
+| Odessa Carver     | Online Payment |
+| Quail Franco      | Online Payment |
+| Revathi Mol       | Online Payment |
+| Roth Walsh        | Online Payment |
+| shiv sagar   s    | Online Payment |
+| Snehith la        | Online Payment |
+| Spoorthi          | Online Payment |
+| Sreeshanth        | Online Payment |
+| Tobias Mccullough | Online Payment |
+| Vani V            | Online Payment |
+| Yolanda Arnold    | Online Payment |
+| Zane Sanford      | Online Payment |
++-------------------+----------------+
+32 rows in set (0.012 sec)
+
+MariaDB [assignment]> 

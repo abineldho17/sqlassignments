@@ -1,0 +1,170 @@
+8) find all employees who are teacher and has never applied for a leave
+MariaDB [assignment]> select CONCAT(employees.first_name ,' ' , employees.last_name) AS Teacher from employees left join batch_tutors on employees.id = batch_tutors.employee_id  left join employee_attendances on employees.id = employee_attendances.id where  employees.school_id = 8 group by employees.id ;
++---------------------------------------------+
+| Teacher                                     |
++---------------------------------------------+
+| Admin User                                  |
+| Karthik                                     |
+| Fanny                                       |
+| Asif Ali                                    |
+| Edward                                      |
+| Stella S                                    |
+| Jessica                                     |
+| Rohit k                                     |
+| Teena                                       |
+| Athul Raj                                   |
+| Rajitha P                                   |
+| Neeraj P                                    |
+| Nirmal T                                    |
+| Neelima N                                   |
+| Maneesh J                                   |
+| Praveen K                                   |
+| Pratheesh T                                 |
+| Preethi A                                   |
+| Sriram K  K                                 |
+| Sreenivas K                                 |
+| Revathi P                                   |
+| Sally                                       |
+| George                                      |
+| Michael                                     |
+| Steffy                                      |
+| Youle                                       |
+| Ritcha                                      |
+| Zephania Miles                              |
+| Ali Klein                                   |
+| Ezra Bauer                                  |
+| Nidhin D                                    |
+| shiv emp                                    |
+| Kennan Knight                               |
+| Kuame Fitzpatrick Fitzpatrick               |
+| Herrod Welch                                |
+| Kerry Browning                              |
+| Navin K                                     |
+| Dennis Oconnor jannaa Bradford jaana dennis |
+| Gwendolyn Hensley                           |
+| Kane Roberson                               |
+| Aileen Tyler                                |
+| Sarah Vazquez                               |
+| Kristen Kramer                              |
+| Cameron Jenkins                             |
+| Cassidy Rivers                              |
+| Gary  Employee                              |
+| Gary  George                                |
+| Maggie Chandler                             |
+| Jena Lane                                   |
+| Eve Hahn                                    |
+| Sydnee Callahan                             |
+| Manesh Kumar                                |
+| Deanna Barker                               |
+| Lysandra Osborne                            |
+| Rebekah Gibson                              |
+| Harish Mangal                               |
+| Porter Vaughan                              |
+| Yuli Sweet                                  |
+| Micah Murphy                                |
+| Imelda Tyson                                |
+| Imelda Landry                               |
+| Lydia Bradley                               |
+| Dacey Ray                                   |
+| Leonard Andrews                             |
+| Reagan Henson                               |
+| Olga Mason                                  |
+| Kennedy Mccarthy                            |
+| Karen Harrington                            |
+| John Steele                                 |
+| Lesley Weaver                               |
+| Marsden Holt                                |
+| Kermit Spears                               |
+| Rose Hopkins                                |
+| Tanya Solis                                 |
+| Branden Banks                               |
+| Arunraj                                     |
+| Aaron Slater                                |
+| Alexandrina N                               |
+| Aimee Ingram                                |
+| Sreekanth                                   |
+| Mary Adkins                                 |
+| Branden Austin                              |
+| Kane Dalton                                 |
+| Daryl Solis                                 |
+| Wynter Manning                              |
+| Hayley Chen                                 |
+| Gabriel Carroll                             |
+| Declan Simpson                              |
+| Lilah Weiss                                 |
+| Cedric Christian                            |
+| Carla Vang                                  |
+| Carla Stuart                                |
+| Macaulay Gardner                            |
+| Farrah Whitney                              |
+| Ruth Mullen                                 |
+| Sade Emerson                                |
+| Iris Dickson                                |
+| Anastasia Gillespie                         |
+| Blaine Compton                              |
+| Nicholas Schroeder                          |
+| Chloe Burnett                               |
+| Sylvester Ellis                             |
+| Trevor Guzman                               |
+| Joy Kane                                    |
+| Adara Stanton                               |
+| Addison Snyder                              |
+| Teagan Goff                                 |
+| Kim Mcdaniel                                |
+| Todd Hinton                                 |
+| Ivory Gentry                                |
+| Armand Whitley                              |
+| Abel Bright                                 |
+| Josephine Kane                              |
+| Patrick Sims                                |
+| Rooney Ortega                               |
+| Abel Spence                                 |
+| Madison Flowers                             |
+| Srihari                                     |
+| Sathya                                      |
+| Sarishna                                    |
+| Ayush                                       |
+| Ravi                                        |
+| Sreejith                                    |
+| Green                                       |
+| Hari                                        |
+| Nichole Rhodes                              |
+| Brenna Mckenzie                             |
+| Dominique Bray                              |
+| Scarlet Hunt                                |
+| Arden Guzman                                |
+| Jescie Schneider                            |
+| Tanisha Banks                               |
+| Kiayada Reid                                |
+| Carter Kennedy                              |
+| Quyn Cross                                  |
+| Shaheen Ghazala                             |
+| Raman                                       |
+| ramnath                                     |
+| TRONEEE                                     |
+| Abraham Wilkerson                           |
+| Jana Garrison                               |
+| Blair Key                                   |
+| Jillian Zimmerman                           |
+| Rowan Dickson                               |
+| Perry Banks                                 |
+| Lisandra Britt                              |
+| Regina Hurley                               |
+| emp 1                                       |
+| emp 1                                       |
+| SRK                                         |
+| Snehith                                     |
+| Ismathulla Aman                             |
+| Sooraj  TP                                  |
+| Navin                                       |
+| Warner                                      |
+| Colin Booth                                 |
+| Assignment                                  |
+| Tuglak                                      |
+| New Payroll Employee                        |
+| Dorothy Angela Benjamin                     |
+| Ruby                                        |
++---------------------------------------------+
+161 rows in set (0.010 sec)
+
+

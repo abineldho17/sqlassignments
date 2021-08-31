@@ -1,0 +1,22 @@
+2.Select any one school and show the names of the students who have unpaid fees, group concat the names of the fee collections which are unpaid by the student.
+
+select CONCAT(students.first_name, " ", students.last_name) AS Name,finance_fees.balance,GROUP_CONCAT(finance_fee_collections.name) AS Unpaid_type  from students inner join finance_fees on students.id = finance_fees.student_id inner join finance_fee_collections on finance_fees.fee_collection_id = finance_fee_collections.id where is_paid = 0 and students.batch_id = 593 group by student_id;  
++------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+| Name       | balance    | Unpaid_type                                                                                                                             |
++------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+| Vinod      |     5.0000 | another,For Partial Fine,On Pending Fees,pending with discount,WithTax Disc,Withot Tax,New Mode,Old Mode,Ruby - upgrade,Cumulative fine |
+| Snehith la | 10000.0000 | For Partial Fine,On Pending Fees,pending with discount,WithTax Disc,New Mode,Old Mode,Ruby - upgrade,Cumulative fine                    |
+| Ferbin     |  3000.0000 | Cumulative fine                                                                                                                         |
+| Twinkle    |     0.0000 | For Partial Fine,On Pending Fees,pending with discount,WithTax Disc,Withot Tax,New Mode,Old Mode,Ruby - upgrade,Cumulative fine         |
+| Shreyas s  | 10000.0000 | For Partial Fine,On Pending Fees,pending with discount,WithTax Disc,Withot Tax,New Mode,Old Mode,Ruby - upgrade,Cumulative fine         |
+| Prashu     |     5.0000 | another,For Partial Fine,On Pending Fees,pending with discount,WithTax Disc,Withot Tax,New Mode,Old Mode,Ruby - upgrade,Cumulative fine |
+| Shadil c   |    15.0000 | another,For Partial Fine,On Pending Fees,pending with discount,WithTax Disc,Withot Tax,New Mode,Old Mode,Ruby - upgrade,Cumulative fine |
+| Nimitha    |    15.0000 | another,For Partial Fine,On Pending Fees,pending with discount,WithTax Disc,Withot Tax,New Mode,Old Mode,Ruby - upgrade,Cumulative fine |
+| Nagaveni   | 10000.0000 | For Partial Fine,On Pending Fees,WithTax Disc,Withot Tax,New Mode,Old Mode,Ruby - upgrade,Cumulative fine                               |
+| Rakesh     |    10.0000 | another,For Partial Fine,On Pending Fees,pending with discount,WithTax Disc,Withot Tax,New Mode,Old Mode,Ruby - upgrade,Cumulative fine |
++------------+------------+-----------------------------------------------------------------------------------------------------------------------------------------+
+10 rows in set (0.003 sec)
+
+MariaDB [assignment]> 
+
+

@@ -1,0 +1,400 @@
+4.Select any one exam group and show the list of all the students with their total marks in descending order.
+MariaDB [assignment]>  select DISTINCT CONCAT(students.first_name, " ", students.last_name) AS Name, sum(exam_scores.marks) as sum  from students left join exam_scores on students.id = exam_scores.student_id left join exams on exam_scores.exam_id = exams.id   group by students.id  ORDER BY sum DESC;
++--------------------------------------+---------+
+| Name                                 | sum     |
++--------------------------------------+---------+
+| Jill                                 | 2368.00 |
+| Jenni                                | 2332.00 |
+| John                                 | 2313.00 |
+| Jessy                                | 2309.00 |
+| Jack                                 | 2194.00 |
+| Karthik K                            | 1279.00 |
+| Kebir K                              | 1113.00 |
+| Tobias Mccullough                    | 1063.00 |
+| Karunya k                            |  966.00 |
+| amala                                |  882.00 |
+| Benedict Holland                     |  871.00 |
+| Augustus Brave                       |  861.00 |
+| vinay                                |  806.00 |
+| Harini P                             |  772.00 |
+| Micheal Krath                        |  734.00 |
+| Meghan Fulton                        |  727.00 |
+| Mohith K                             |  698.00 |
+| Sreekala K                           |  683.00 |
+| Malachi Mcgowan                      |  663.00 |
+| AADI  MAHESHWARI                     |  662.00 |
+| Fathima P                            |  645.00 |
+| Karthik K                            |  634.00 |
+| Sreelatha V                          |  628.00 |
+| Marjana Farhan                       |  625.00 |
+| Praveen P                            |  614.00 |
+| Priya A                              |  614.00 |
+| Manohoran K                          |  607.00 |
+| Farhana M                            |  603.00 |
+| Kebir K                              |  598.00 |
+| Athulya P                            |  574.00 |
+| Peter Clive                          |  552.00 |
+| Preethi P                            |  552.00 |
+| Sandesh P                            |  511.00 |
+| Madaline Anthony                     |  483.00 |
+| Aboobacker A                         |  481.00 |
+| Chanda Santana                       |  473.00 |
+| Pandora Gomez                        |  459.00 |
+| Clayton Moody                        |  441.00 |
+| Lucas Barnes                         |  435.00 |
+| Ivory Payne                          |  431.00 |
+| Smitha Valsan                        |  426.00 |
+| Thomas Roy                           |  422.00 |
+| Vani V                               |  417.00 |
+| Remedios Noel                        |  414.00 |
+| Thriveni P K                         |  408.00 |
+| Rithin Raveendran                    |  405.00 |
+| Aneez Azeez                          |  397.00 |
+| Revathi Mol                          |  395.00 |
+| Deepak Mohan                         |  393.00 |
+| Deepak Mohan                         |  390.00 |
+| Sachi                                |  376.00 |
+| Ronan Johnston                       |  364.00 |
+| Priya P                              |  362.00 |
+| Nabeena Ahammed                      |  352.00 |
+| Kim Nolan                            |  351.00 |
+| Philip Louis                         |  351.00 |
+| Mohan M                              |  339.00 |
+| Roy Thomas                           |  332.00 |
+| Mufeedah Muhammed                    |  331.00 |
+| Steve Clive                          |  328.00 |
+| Kripa T                              |  327.00 |
+| Gopan G                              |  325.00 |
+| Mani K                               |  321.00 |
+| Sneha S                              |  319.00 |
+| Neeraja P                            |  318.00 |
+| Krishnan P                           |  318.00 |
+| Manu SV                              |  318.00 |
+| Mary Reena                           |  317.00 |
+| Chandrika C                          |  303.00 |
+| Mrithul Mohan                        |  297.00 |
+| Evan Vinson pand ram Kinney Vinson   |  290.00 |
+| Sankitha S                           |  287.00 |
+| Mini M                               |  286.00 |
+| Gopika Gopalan                       |  285.00 |
+| Jelani Robertson                     |  275.00 |
+| Rosalyn Kramer                       |  242.00 |
+| Bill  Gates                          |  219.00 |
+| Aretha Tate                          |  199.00 |
+| Akash A                              |  177.00 |
+| Shilpa                               |  176.00 |
+| Althea Hester                        |  152.00 |
+| Shiv                                 |   92.00 |
+| Blaze Mccarthy                       |   66.00 |
+| Macey Randolph                       |   64.00 |
+| Elvis Savage                         |   52.00 |
+| Lillith Aguirre                      |   45.00 |
+| Neve Daugherty                       |   44.00 |
+| Brett Miller                         |    7.00 |
+| Natalie Kerr                         |    6.00 |
+| Paloma Vega                          |    NULL |
+| Sib2                                 |    NULL |
+| Kiara Berger                         |    NULL |
+| Ruby Old Studen                      |    NULL |
+| Beatrice Rowe                        |    NULL |
+| Melodie Dickson                      |    NULL |
+| A C                                  |    NULL |
+| Hope Tate                            |    NULL |
+| Kelly Obrien                         |    NULL |
+| Deanna Guerrero                      |    NULL |
+| Lesley Casey                         |    NULL |
+| Diya                                 |    NULL |
+| Pankaj raj                           |    NULL |
+| Aiko Nielsen                         |    NULL |
+| Jamalia Clemons                      |    NULL |
+| Charles Webster                      |    NULL |
+| shiv sagar   s                       |    NULL |
+| Burke Alford                         |    NULL |
+| Silas Meyer                          |    NULL |
+| t56                                  |    NULL |
+| David Joyce                          |    NULL |
+| Shrudhin                             |    NULL |
+| Register lasr                        |    NULL |
+| Chandler Sanford                     |    NULL |
+| Ingrid Clay                          |    NULL |
+| stu                                  |    NULL |
+| Damon Gallegos                       |    NULL |
+| Walter Raymond                       |    NULL |
+| Sybil Hubbard                        |    NULL |
+| Shad Chandler                        |    NULL |
+| Avye Dixon                           |    NULL |
+| Geoffrey Hayden                      |    NULL |
+| Josiah Winters                       |    NULL |
+| Jana Hayden                          |    NULL |
+| Loki Asgard                          |    NULL |
+| sagar                                |    NULL |
+| Justina Bush                         |    NULL |
+| Kessie Adkins                        |    NULL |
+| Gary George                          |    NULL |
+| Ivana Battle                         |    NULL |
+| Nora Gould                           |    NULL |
+| Herman Kelley                        |    NULL |
+| Rocky s                              |    NULL |
+| Clinton Cruz                         |    NULL |
+| Ivan_test                            |    NULL |
+| Sylvester Barber                     |    NULL |
+| Wayne Romero                         |    NULL |
+| sne                                  |    NULL |
+| Ali Barrera                          |    NULL |
+| Twinkle                              |    NULL |
+| Madeline Sykes                       |    NULL |
+| Herman Maddox                        |    NULL |
+| Debra Zamora                         |    NULL |
+| Indira Holt                          |    NULL |
+| Sib4                                 |    NULL |
+| Colton Holcomb                       |    NULL |
+| Basia Carter                         |    NULL |
+| Madison Vinson                       |    NULL |
+| Nola Garcia                          |    NULL |
+| Wylie Salazar                        |    NULL |
+| Kasimir Sloan                        |    NULL |
+| Hillary Barker                       |    NULL |
+| PMS student                          |    NULL |
+| Iola Rios                            |    NULL |
+| Quail Franco                         |    NULL |
+| Shreyas s                            |    NULL |
+| Risa Battle                          |    NULL |
+| Ivory Sparks                         |    NULL |
+| Winifred Carroll                     |    NULL |
+| Quinn Kirk                           |    NULL |
+| Nasim Meyers                         |    NULL |
+| Ignatius Anderson                    |    NULL |
+| Ryan Abbott                          |    NULL |
+| Petur_test                           |    NULL |
+| Odessa Carver                        |    NULL |
+| Damon Wilcox                         |    NULL |
+| Cathleen Charles                     |    NULL |
+| aadis csz                            |    NULL |
+| IronMan                              |    NULL |
+| Prashu Modi                          |    NULL |
+| Reg Check xds                        |    NULL |
+| Bruno Joyner                         |    NULL |
+| Kenyon Wolf                          |    NULL |
+| Kennan James                         |    NULL |
+| Amal                                 |    NULL |
+| Phyllis Moses                        |    NULL |
+| Pearl Moses                          |    NULL |
+| rocky dwane smith john               |    NULL |
+| Ray Whitfield                        |    NULL |
+| Lydia Barker                         |    NULL |
+| Jameson Moody                        |    NULL |
+| new dle                              |    NULL |
+| Avram Young                          |    NULL |
+| Philip Lawrence                      |    NULL |
+| Prashu                               |    NULL |
+| Jessica Hardin                       |    NULL |
+| Noel Wallace                         |    NULL |
+| Alexander Snyder                     |    NULL |
+| Shilpa                               |    NULL |
+| Tucker Wilder                        |    NULL |
+| Herman Little                        |    NULL |
+| Kendall Luna                         |    NULL |
+| Petya_test                           |    NULL |
+| Harrison Hood                        |    NULL |
+| Rae Thompson                         |    NULL |
+| Nomlanga Leonard                     |    NULL |
+| fee_due                              |    NULL |
+| Captain America                      |    NULL |
+| Rakesh                               |    NULL |
+| Chloe Campbell                       |    NULL |
+| Paki Bernard                         |    NULL |
+| stud 1                               |    NULL |
+| Snehith lal                          |    NULL |
+| Brianna Brewer                       |    NULL |
+| Roth Walsh                           |    NULL |
+| Holly Good                           |    NULL |
+| Claire Schwartz                      |    NULL |
+| Graiden Quinn                        |    NULL |
+| Foradian                             |    NULL |
+| Nelle Valentine                      |    NULL |
+| Quamar Silva                         |    NULL |
+| Shadil c                             |    NULL |
+| Leah Guzman                          |    NULL |
+| Declan Jenkins                       |    NULL |
+| Zane Sanford                         |    NULL |
+| Kripa                                |    NULL |
+| Judith Wilder                        |    NULL |
+| Zena Hurley                          |    NULL |
+| Baxter Pierce                        |    NULL |
+| Matthew Guy                          |    NULL |
+| Ivan Ivanow                          |    NULL |
+| Wilma Britt                          |    NULL |
+| Lyle Flores                          |    NULL |
+| Rhoda Nieves                         |    NULL |
+| Olivia Sullivan                      |    NULL |
+| Hulk                                 |    NULL |
+| Nagaveni                             |    NULL |
+| batch transfer student               |    NULL |
+| stud 2                               |    NULL |
+| Cassidy Berger                       |    NULL |
+| Katelyn Ferguson                     |    NULL |
+| Dara Hale                            |    NULL |
+| Breanna Petty                        |    NULL |
+| Charissa Wolf                        |    NULL |
+| Shana Duran                          |    NULL |
+| Marcia Campos                        |    NULL |
+| Foradian1                            |    NULL |
+| Olga Ashley                          |    NULL |
+| Luke Fowler                          |    NULL |
+| Nimitha                              |    NULL |
+| Bell Collier                         |    NULL |
+| Sreeshanth Hebert                    |    NULL |
+| Macy Daniels                         |    NULL |
+| Haritha                              |    NULL |
+| Uta Howard                           |    NULL |
+| Leila Middleton                      |    NULL |
+| Nehru Ferguson                       |    NULL |
+| Chanda Wallace                       |    NULL |
+| Nero Lawson                          |    NULL |
+| Declan Carroll                       |    NULL |
+| Halla Ruiz                           |    NULL |
+| Snehith                              |    NULL |
+| Thor                                 |    NULL |
+| Hijas                                |    NULL |
+| Kadeem Berry                         |    NULL |
+| Levi Crosby                          |    NULL |
+| forad                                |    NULL |
+| Akeem Emerson                        |    NULL |
+| Olga Johnson                         |    NULL |
+| Iona Lambert                         |    NULL |
+| Arjun TP                             |    NULL |
+| Upton Park                           |    NULL |
+| Cooper Robinson                      |    NULL |
+| Plato Kirk                           |    NULL |
+| Colby Stokes                         |    NULL |
+| Foradian23                           |    NULL |
+| Shelley Diaz                         |    NULL |
+| Fleur Atkins                         |    NULL |
+| Twinkle Sandoval                     |    NULL |
+| Leilani Bean                         |    NULL |
+| Emerald Flowers                      |    NULL |
+| Karthik                              |    NULL |
+| asdasd                               |    NULL |
+| Alexa Estrada                        |    NULL |
+| Lucian Frye                          |    NULL |
+| Lucian Hewitt                        |    NULL |
+| Cairo Barber                         |    NULL |
+| Lev Reilly                           |    NULL |
+| rocky                                |    NULL |
+| Shreyas                              |    NULL |
+| Black Widow                          |    NULL |
+| Navin                                |    NULL |
+| erwer rer                            |    NULL |
+| MacKensie Hunter                     |    NULL |
+| sibling                              |    NULL |
+| Laurel Harper                        |    NULL |
+| Suman                                |    NULL |
+| shiv test                            |    NULL |
+| Germane Atkins                       |    NULL |
+| Hanna Kennedy                        |    NULL |
+| Clio Castaneda                       |    NULL |
+| Foradian4                            |    NULL |
+| Roary Macdonald                      |    NULL |
+| Albert Lio                           |    NULL |
+| Basil Gallegos                       |    NULL |
+| child1                               |    NULL |
+| Quinn Faulkner                       |    NULL |
+| Bo Chang                             |    NULL |
+| Calvin Morgan                        |    NULL |
+| dsdsa                                |    NULL |
+| Hashim English                       |    NULL |
+| Oren Kim                             |    NULL |
+| Belle Petty                          |    NULL |
+| Kasper Horn                          |    NULL |
+| henry s                              |    NULL |
+| Registration actived ds              |    NULL |
+| Hawkeye                              |    NULL |
+| Melyssa Boyer                        |    NULL |
+| Student1                             |    NULL |
+| asdasd asdasdasd                     |    NULL |
+| Josephine Hebert                     |    NULL |
+| camerie                              |    NULL |
+| Test Form asd                        |    NULL |
+| Yolanda Arnold                       |    NULL |
+| Rahul                                |    NULL |
+| test                                 |    NULL |
+| Venus Sweet                          |    NULL |
+| Scarlett Steele                      |    NULL |
+| Christine Kane                       |    NULL |
+| ForadianStudent12                    |    NULL |
+| Arunraj E                            |    NULL |
+| Jeremy Stewart                       |    NULL |
+| test sib2                            |    NULL |
+| Arc1                                 |    NULL |
+| Brielle Burns                        |    NULL |
+| Guardian                             |    NULL |
+| Ronan Wagner                         |    NULL |
+| Mark Watson                          |    NULL |
+| Lysandra Rhodes                      |    NULL |
+| Kyle Faulkner                        |    NULL |
+| Brenden Joyner                       |    NULL |
+| Byron Pace                           |    NULL |
+| Ginger Burch                         |    NULL |
+| Marsden Palmer                       |    NULL |
+| Check Sms das                        |    NULL |
+| dd sd                                |    NULL |
+| Petra Jefferson                      |    NULL |
+| Nicole                               |    NULL |
+| Vinod                                |    NULL |
+| Aspen Harding                        |    NULL |
+| Spoorthi                             |    NULL |
+| MY Test 2                            |    NULL |
+| Raymond Kemp                         |    NULL |
+| Mara Briggs                          |    NULL |
+| mike tyson                           |    NULL |
+| Srilakshmi                           |    NULL |
+| Appu                                 |    NULL |
+| Zephania Ramirez                     |    NULL |
+| S1                                   |    NULL |
+| Abc1                                 |    NULL |
+| check1234 da                         |    NULL |
+| Test F                               |    NULL |
+| Evangeline Morse                     |    NULL |
+| Hop Strickland                       |    NULL |
+| Cedric Blackburn                     |    NULL |
+| Stuart Bray                          |    NULL |
+| Cassandra Snow                       |    NULL |
+| Candace Powell                       |    NULL |
+| Baxter Preston                       |    NULL |
+| Kay Ellison                          |    NULL |
+| Illana Henderson                     |    NULL |
+| Cedric Coffey                        |    NULL |
+| Chec                                 |    NULL |
+| Erasmus Washington                   |    NULL |
+| Tatiana Robles                       |    NULL |
+| Sonia Carey                          |    NULL |
+| Snehith la                           |    NULL |
+| Rana Finch                           |    NULL |
+| Uriah Sears                          |    NULL |
+| Sreeshanth                           |    NULL |
+| Zane Hopkins                         |    NULL |
+| ناوی بەکارهێنان Carson               |    NULL |
+| Daphne Byrd                          |    NULL |
+| Ashton Reilly                        |    NULL |
+| Ursula Graves                        |    NULL |
+| Kelsey Castro                        |    NULL |
+| Brooke Collier                       |    NULL |
+| S2                                   |    NULL |
+| Flavia Shepherd                      |    NULL |
+| Alana Burns                          |    NULL |
+| Ferbin                               |    NULL |
+| SA sa                                |    NULL |
+| Nelle Ashley                         |    NULL |
+| Alexandra Dickson                    |    NULL |
+| Portia Workman                       |    NULL |
+| Talon Trevino                        |    NULL |
+| Shafeer Kumar                        |    NULL |
+| Gabriel Navarro                      |    NULL |
+| Blossom Mckinney                     |    NULL |
+| Leroy Bonner                         |    NULL |
++--------------------------------------+---------+
+389 rows in set (0.057 sec)
+
+MariaDB [assignment]> 
+
+

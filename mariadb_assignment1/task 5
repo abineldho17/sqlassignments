@@ -1,0 +1,24 @@
+5.Select any one school and show all courses and group concat the subject names available for each batch of that course.
+
+select courses.course_name,GROUP_CONCAT(DISTINCT  subjects.name order by subjects.name SEPARATOR ',')as subjects from courses inner join  batches on courses.id = batches.course_id inner join subjects on  batches.id = subjects.batch_id inner join schools on  batches.school_id = schools.id where  schools.id = 6 group by courses.id;
++------------------------------------+-----------------------------------------------------------+
+| course_name                        | subjects                                                  |
++------------------------------------+-----------------------------------------------------------+
+| Grade 1(Normal)                    | English,German,Maths,Science,Social Studies,Spanish       |
+| Grade 2(GPA)                       | English,German,Maths,Science,Social Studies,Spanish       |
+| Grade 3(CWA)                       | English,German,Maths,Science,Social Studies,Spanish       |
+| Grade 4(ICSE)                      | English,German,Maths,Science,Social,Spanish               |
+| Grade 5(CCE)                       | English,German,Maths,Science,Social Studies,Spanish       |
+| Diploma in Theatre Semester 1(GPA) | English,German,Mathematics,Science,Social Science,Spanish |
+| Diploma in Theatre Semester 2(GPA) | English,German,Mathematics,Science,Social Studies,Spanish |
+| Diploma in Theatre Semester 3(GPA) | English,German,Mathematics,Science,Social Science,Spanish |
+| Diploma in Theatre Semester 4(GPA) | English,German,Mathematics,Science,Social Science,Spanish |
+| Diploma in Theatre Semester 5(GPA) | English,German,Mathematics,Science,Social Science,Spanish |
+| Diploma in Theatre Semester 6(GPA) | English,German,Mathematics,Science,Social Science,Spanish |
++------------------------------------+-----------------------------------------------------------+
+11 rows in set (0.003 sec)
+
+MariaDB [assignment]> 
+
+
+

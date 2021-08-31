@@ -1,0 +1,378 @@
+1) show all subject names to be studied by students of all active batches, show student full name and batch full name
+	[tables: students, subjects, elective_groups, students_subjects, batches, courses]
+
+
+
+
+
+MariaDB [assignment]> select CONCAT(students.first_name,' ',students.last_name) AS Name , 
+batches.name,GROUP_CONCAT(DISTINCT subjects.name,' ',elective_groups.name) AS Full_Subjects from students 
+left join students_subjects on students.id = students_subjects.student_id left join subjects on 
+students_subjects.subject_id = subjects.id   left join batches on  
+students_subjects.batch_id =batches.id left join elective_groups on  
+subjects.elective_group_id = elective_groups.id  where students.school_id = 8
+group by Name;
++--------------------------------------+----------------+------------------------------------------------------------------------------------+
+| Name                                 | name           | Full_Subjects                                                                      |
++--------------------------------------+----------------+------------------------------------------------------------------------------------+
+| AADI  MAHESHWARI                     | NULL           | NULL                                                                               |
+| aadis csz                            | NULL           | NULL                                                                               |
+| Abc1                                 | NULL           | NULL                                                                               |
+| Aboobacker A                         | A(2015-2016)   | Spanish Languages                                                                  |
+| Aiko Nielsen                         | NULL           | NULL                                                                               |
+| Akash A                              | A(2015-2016)   | German Languages                                                                   |
+| Akeem Emerson                        | NULL           | NULL                                                                               |
+| Alana Burns                          | NULL           | NULL                                                                               |
+| Albert Lio                           | NULL           | NULL                                                                               |
+| Alexa Estrada                        | NULL           | NULL                                                                               |
+| Alexander Snyder                     | NULL           | NULL                                                                               |
+| Alexandra Dickson                    | NULL           | NULL                                                                               |
+| Ali Barrera                          | NULL           | NULL                                                                               |
+| Althea Hester                        | 2017A          | Malayalam Elective group                                                           |
+| Amal                                 | NULL           | NULL                                                                               |
+| Aneez Azeez                          | A(2015-2016)   | Spanish Languages                                                                  |
+| Appu                                 | NULL           | NULL                                                                               |
+| Arc1                                 | NULL           | NULL                                                                               |
+| Aretha Tate                          | 2017A          | Hindi Second Language                                                              |
+| Arunraj E                            | NULL           | NULL                                                                               |
+| asdasd                               | NULL           | NULL                                                                               |
+| asdasd asdasdasd                     | NULL           | NULL                                                                               |
+| Ashton Reilly                        | Sub2017A       | Malayalam Second Language                                                          |
+| Aspen Harding                        | 2018A          | Hindi Second Language                                                              |
+| Athulya P                            | A(2015-2016)   | Spanish Languages                                                                  |
+| Augustus Brave                       | A(2015-2016)   | Spanish Languages                                                                  |
+| Avram Young                          | NULL           | NULL                                                                               |
+| Avye Dixon                           | NULL           | NULL                                                                               |
+| Basia Carter                         | NULL           | NULL                                                                               |
+| Basil Gallegos                       | NULL           | NULL                                                                               |
+| batch transfer student               | NULL           | NULL                                                                               |
+| Baxter Pierce                        | NULL           | NULL                                                                               |
+| Baxter Preston                       | NULL           | NULL                                                                               |
+| Beatrice Rowe                        | NULL           | NULL                                                                               |
+| Bell Collier                         | NULL           | NULL                                                                               |
+| Belle Petty                          | NULL           | NULL                                                                               |
+| Benedict Holland                     | 2018A          | Malayalam Second Language                                                          |
+| Bill  Gates                          | A(2015-2016)   | German Languages                                                                   |
+| Black Widow                          | NULL           | NULL                                                                               |
+| Blaze Mccarthy                       | 2017A          | Malayalam Second Language                                                          |
+| Blossom Mckinney                     | NULL           | NULL                                                                               |
+| Bo Chang                             | NULL           | NULL                                                                               |
+| Breanna Petty                        | NULL           | NULL                                                                               |
+| Brenden Joyner                       | NULL           | NULL                                                                               |
+| Brett Miller                         | 2017A          | Malayalam Elective group                                                           |
+| Brianna Brewer                       | NULL           | NULL                                                                               |
+| Brielle Burns                        | NULL           | NULL                                                                               |
+| Brooke Collier                       | NULL           | NULL                                                                               |
+| Bruno Joyner                         | NULL           | NULL                                                                               |
+| Burke Alford                         | NULL           | NULL                                                                               |
+| Byron Pace                           | NULL           | NULL                                                                               |
+| Cairo Barber                         | NULL           | NULL                                                                               |
+| Calvin Morgan                        | NULL           | NULL                                                                               |
+| camerie                              | NULL           | NULL                                                                               |
+| Candace Powell                       | NULL           | NULL                                                                               |
+| Captain America                      | NULL           | NULL                                                                               |
+| Cassandra Snow                       | NULL           | NULL                                                                               |
+| Cassidy Berger                       | NULL           | NULL                                                                               |
+| Cathleen Charles                     | NULL           | NULL                                                                               |
+| Cedric Coffey                        | NULL           | NULL                                                                               |
+| Chanda Santana                       | NULL           | NULL                                                                               |
+| Chanda Wallace                       | NULL           | NULL                                                                               |
+| Chandler Sanford                     | NULL           | NULL                                                                               |
+| Chandrika C                          | A(2015-2016)   | German Languages                                                                   |
+| Charissa Wolf                        | NULL           | NULL                                                                               |
+| Charles Webster                      | 2018A          | Hindi Second Language                                                              |
+| Chec                                 | NULL           | NULL                                                                               |
+| Check Sms das                        | NULL           | NULL                                                                               |
+| check1234 da                         | NULL           | NULL                                                                               |
+| child1                               | NULL           | NULL                                                                               |
+| Chloe Campbell                       | NULL           | NULL                                                                               |
+| Christine Kane                       | NULL           | NULL                                                                               |
+| Claire Schwartz                      | NULL           | NULL                                                                               |
+| Clayton Moody                        | NULL           | NULL                                                                               |
+| Clinton Cruz                         | NULL           | NULL                                                                               |
+| Clio Castaneda                       | NULL           | NULL                                                                               |
+| Colby Stokes                         | NULL           | NULL                                                                               |
+| Colton Holcomb                       | NULL           | NULL                                                                               |
+| Cooper Robinson                      | NULL           | NULL                                                                               |
+| Damon Gallegos                       | NULL           | NULL                                                                               |
+| Damon Wilcox                         | NULL           | NULL                                                                               |
+| Daphne Byrd                          | NULL           | NULL                                                                               |
+| Dara Hale                            | NULL           | NULL                                                                               |
+| David Joyce                          | NULL           | NULL                                                                               |
+| dd sd                                | NULL           | NULL                                                                               |
+| Deanna Guerrero                      | NULL           | NULL                                                                               |
+| Debra Zamora                         | NULL           | NULL                                                                               |
+| Declan Carroll                       | NULL           | NULL                                                                               |
+| Declan Jenkins                       | NULL           | NULL                                                                               |
+| Deepak Mohan                         | A(2015-2016)   | Spanish Languages                                                                  |
+| Diya                                 | NULL           | NULL                                                                               |
+| dsdsa                                | NULL           | NULL                                                                               |
+| Elvis Savage                         | 2017A          | Malayalam Elective group                                                           |
+| Emerald Flowers                      | NULL           | NULL                                                                               |
+| Erasmus Washington                   | NULL           | NULL                                                                               |
+| erwer rer                            | NULL           | NULL                                                                               |
+| Evan Vinson pand ram Kinney Vinson   | 2017A          | Malayalam Elective group                                                           |
+| Evangeline Morse                     | NULL           | NULL                                                                               |
+| Farhana M                            | A(2015-2016)   | Spanish Languages                                                                  |
+| Fathima P                            | A(2015-2016)   | Spanish Languages                                                                  |
+| fee_due                              | NULL           | NULL                                                                               |
+| Ferbin                               | NULL           | Development Engineering,Implementation Support,Support Support,Testing Engineering |
+| Flavia Shepherd                      | NULL           | NULL                                                                               |
+| Fleur Atkins                         | NULL           | NULL                                                                               |
+| forad                                | NULL           | NULL                                                                               |
+| Foradian                             | NULL           | NULL                                                                               |
+| Foradian1                            | NULL           | NULL                                                                               |
+| Foradian23                           | NULL           | NULL                                                                               |
+| Foradian4                            | NULL           | NULL                                                                               |
+| ForadianStudent12                    | NULL           | NULL                                                                               |
+| Gabriel Navarro                      | NULL           | NULL                                                                               |
+| Geoffrey Hayden                      | 2017A          | Malayalam Second Language                                                          |
+| Germane Atkins                       | NULL           | NULL                                                                               |
+| Ginger Burch                         | NULL           | NULL                                                                               |
+| Gopan G                              | A(2015-2016)   | German Languages                                                                   |
+| Gopika Gopalan                       | A(2015-2016)   | Spanish Languages                                                                  |
+| Graiden Quinn                        | Daily2017A     | Malayalam Elective group                                                           |
+| Guardian                             | NULL           | NULL                                                                               |
+| Halla Ruiz                           | NULL           | NULL                                                                               |
+| Hanna Kennedy                        | NULL           | NULL                                                                               |
+| Harini P                             | A(2015-2016)   | Spanish Languages                                                                  |
+| Haritha                              | NULL           | Chemistry Lab Lab                                                                  |
+| Harrison Hood                        | NULL           | NULL                                                                               |
+| Hashim English                       | NULL           | NULL                                                                               |
+| Hawkeye                              | NULL           | NULL                                                                               |
+| henry s                              | NULL           | NULL                                                                               |
+| Herman Kelley                        | NULL           | NULL                                                                               |
+| Herman Little                        | NULL           | NULL                                                                               |
+| Herman Maddox                        | NULL           | NULL                                                                               |
+| Hijas                                | NULL           | NULL                                                                               |
+| Hillary Barker                       | NULL           | NULL                                                                               |
+| Holly Good                           | NULL           | NULL                                                                               |
+| Hop Strickland                       | NULL           | NULL                                                                               |
+| Hope Tate                            | NULL           | NULL                                                                               |
+| Hulk                                 | NULL           | NULL                                                                               |
+| Ignatius Anderson                    | NULL           | NULL                                                                               |
+| Illana Henderson                     | NULL           | NULL                                                                               |
+| Indira Holt                          | NULL           | NULL                                                                               |
+| Ingrid Clay                          | NULL           | NULL                                                                               |
+| Iola Rios                            | NULL           | NULL                                                                               |
+| Iona Lambert                         | NULL           | NULL                                                                               |
+| IronMan                              | NULL           | NULL                                                                               |
+| Ivana Battle                         | NULL           | NULL                                                                               |
+| Ivory Payne                          | NULL           | NULL                                                                               |
+| Ivory Sparks                         | NULL           | NULL                                                                               |
+| Jack                                 |  A 2015        | Spanish  language,Spanish LANGUAGES                                                |
+| Jamalia Clemons                      | NULL           | NULL                                                                               |
+| Jameson Moody                        | NULL           | NULL                                                                               |
+| Jana Hayden                          | NULL           | NULL                                                                               |
+| Jelani Robertson                     | NULL           | NULL                                                                               |
+| Jenni                                |  A 2015        | Spanish  language,Spanish LANGUAGES                                                |
+| Jeremy Stewart                       | NULL           | NULL                                                                               |
+| Jessica Hardin                       | NULL           | NULL                                                                               |
+| Jessy                                |  A 2015        | German  language,German LANGUAGES                                                  |
+| Jill                                 |  A 2015        | German  language,German LANGUAGES                                                  |
+| John                                 |  A 2015        | German  language,German LANGUAGES                                                  |
+| Josephine Hebert                     | NULL           | NULL                                                                               |
+| Josiah Winters                       | NULL           | NULL                                                                               |
+| Judith Wilder                        | NULL           | NULL                                                                               |
+| Justina Bush                         | NULL           | NULL                                                                               |
+| Kadeem Berry                         | NULL           | NULL                                                                               |
+| Karthik                              | NULL           | Physcics Lab Lab                                                                   |
+| Karthik K                            | A(2015-2016)   | Spanish Languages                                                                  |
+| Karunya k                            | A(2015-2016)   | German Languages,Spanish Languages                                                 |
+| Kasimir Sloan                        | NULL           | NULL                                                                               |
+| Kasper Horn                          | NULL           | NULL                                                                               |
+| Katelyn Ferguson                     | NULL           | NULL                                                                               |
+| Kay Ellison                          | NULL           | NULL                                                                               |
+| Kebir K                              | A(2015-2016)   | Spanish Languages                                                                  |
+| Kelsey Castro                        | NULL           | NULL                                                                               |
+| Kendall Luna                         | NULL           | NULL                                                                               |
+| Kennan James                         | NULL           | NULL                                                                               |
+| Kenyon Wolf                          | NULL           | NULL                                                                               |
+| Kessie Adkins                        | NULL           | NULL                                                                               |
+| Kiara Berger                         | NULL           | NULL                                                                               |
+| Kim Nolan                            | 2017A          | Malayalam Elective group                                                           |
+| Kripa                                | NULL           | Chemistry Lab Lab                                                                  |
+| Kripa T                              | A(2015-2016)   | Spanish Languages                                                                  |
+| Kyle Faulkner                        | NULL           | NULL                                                                               |
+| Laurel Harper                        | NULL           | NULL                                                                               |
+| Leah Guzman                          | NULL           | NULL                                                                               |
+| Leila Middleton                      | NULL           | NULL                                                                               |
+| Leilani Bean                         | NULL           | NULL                                                                               |
+| Leroy Bonner                         | NULL           | NULL                                                                               |
+| Lesley Casey                         | NULL           | NULL                                                                               |
+| Lev Reilly                           | NULL           | NULL                                                                               |
+| Levi Crosby                          | NULL           | NULL                                                                               |
+| Lillith Aguirre                      | 2017A          | Malayalam Second Language                                                          |
+| Loki Asgard                          | NULL           | NULL                                                                               |
+| Lucas Barnes                         | NULL           | NULL                                                                               |
+| Lucian Frye                          | NULL           | NULL                                                                               |
+| Lucian Hewitt                        | NULL           | NULL                                                                               |
+| Lydia Barker                         | NULL           | NULL                                                                               |
+| Lyle Flores                          | NULL           | NULL                                                                               |
+| Lysandra Rhodes                      | NULL           | NULL                                                                               |
+| Macey Randolph                       | NULL           | NULL                                                                               |
+| MacKensie Hunter                     | NULL           | NULL                                                                               |
+| Macy Daniels                         | NULL           | NULL                                                                               |
+| Madaline Anthony                     | 2018A          | Malayalam Second Language                                                          |
+| Madeline Sykes                       | NULL           | NULL                                                                               |
+| Madison Vinson                       | NULL           | NULL                                                                               |
+| Malachi Mcgowan                      | 2018A          | Hindi Second Language                                                              |
+| Mani K                               | A(2015-2016)   | Spanish Languages                                                                  |
+| Manohoran K                          | A(2015-2016)   | German Languages                                                                   |
+| Manu SV                              | A(2015-2016)   | German Languages                                                                   |
+| Mara Briggs                          | NULL           | NULL                                                                               |
+| Marcia Campos                        | NULL           | NULL                                                                               |
+| Marjana Farhan                       | A(2015-2016)   | Spanish Languages                                                                  |
+| Mark Watson                          | NULL           | NULL                                                                               |
+| Marsden Palmer                       | NULL           | NULL                                                                               |
+| Mary Reena                           | A(2015-2016)   | Spanish Languages                                                                  |
+| Matthew Guy                          | NULL           | NULL                                                                               |
+| Meghan Fulton                        | 2018A          | Hindi Second Language                                                              |
+| Melodie Dickson                      | NULL           | NULL                                                                               |
+| Melyssa Boyer                        | NULL           | NULL                                                                               |
+| mike tyson                           | NULL           | NULL                                                                               |
+| Mini M                               | NULL           | NULL                                                                               |
+| Mohan M                              | A(2015-2016)   | German Languages                                                                   |
+| Mohith K                             | A(2015-2016)   | German Languages                                                                   |
+| Mrithul Mohan                        | A(2015-2016)   | Spanish Languages                                                                  |
+| Mufeedah Muhammed                    | A(2015-2016)   | German Languages                                                                   |
+| Nabeena Ahammed                      | A(2015-2016)   | German Languages                                                                   |
+| Nagaveni                             | Dev            | Support Support,Testing Engineering                                                |
+| Natalie Kerr                         | NULL           | NULL                                                                               |
+| Navin                                | NULL           | NULL                                                                               |
+| Neeraja P                            | A(2015-2016)   | Spanish Languages                                                                  |
+| Nehru Ferguson                       | NULL           | NULL                                                                               |
+| Nelle Ashley                         | NULL           | NULL                                                                               |
+| Nelle Valentine                      | NULL           | NULL                                                                               |
+| Nero Lawson                          | NULL           | NULL                                                                               |
+| Neve Daugherty                       | NULL           | NULL                                                                               |
+| new dle                              | NULL           | NULL                                                                               |
+| Nicole                               | NULL           | NULL                                                                               |
+| Nimitha                              | Dev            | Implementation Support,Support Support,Testing Engineering                         |
+| Noel Wallace                         | NULL           | NULL                                                                               |
+| Nola Garcia                          | NULL           | NULL                                                                               |
+| Nomlanga Leonard                     | NULL           | NULL                                                                               |
+| Nora Gould                           | NULL           | NULL                                                                               |
+| Odessa Carver                        | NULL           | NULL                                                                               |
+| Olga Ashley                          | NULL           | NULL                                                                               |
+| Olga Johnson                         | NULL           | NULL                                                                               |
+| Olivia Sullivan                      | NULL           | NULL                                                                               |
+| Oren Kim                             | NULL           | NULL                                                                               |
+| Paki Bernard                         | NULL           | NULL                                                                               |
+| Paloma Vega                          | NULL           | NULL                                                                               |
+| Pandora Gomez                        | NULL           | NULL                                                                               |
+| Pankaj raj                           | NULL           | NULL                                                                               |
+| Pearl Moses                          | NULL           | NULL                                                                               |
+| Peter Clive                          | A(2015-2016)   | German Languages                                                                   |
+| Petra Jefferson                      | NULL           | NULL                                                                               |
+| Phyllis Moses                        | NULL           | NULL                                                                               |
+| Plato Kirk                           | NULL           | NULL                                                                               |
+| PMS student                          | NULL           | NULL                                                                               |
+| Portia Workman                       | NULL           | NULL                                                                               |
+| Prashu                               | Dev            | Development Engineering,Support Support,Testing Engineering                        |
+| Prashu Modi                          | NULL           | NULL                                                                               |
+| Praveen P                            | A(2015-2016)   | German Languages                                                                   |
+| Preethi P                            | A(2015-2016)   | German Languages                                                                   |
+| Priya A                              | A(2015-2016)   | German Languages                                                                   |
+| Priya P                              | A(2015-2016)   | Spanish Languages                                                                  |
+| Quail Franco                         | NULL           | NULL                                                                               |
+| Quinn Faulkner                       | NULL           | NULL                                                                               |
+| Quinn Kirk                           | NULL           | NULL                                                                               |
+| Rae Thompson                         | NULL           | NULL                                                                               |
+| Rahul                                | NULL           | NULL                                                                               |
+| Rakesh                               | Dev            | Support Support,Testing Engineering                                                |
+| Ray Whitfield                        | NULL           | NULL                                                                               |
+| Raymond Kemp                         | NULL           | NULL                                                                               |
+| Reg Check xds                        | NULL           | NULL                                                                               |
+| Register lasr                        | NULL           | NULL                                                                               |
+| Registration actived ds              | NULL           | NULL                                                                               |
+| Remedios Noel                        | NULL           | NULL                                                                               |
+| Revathi Mol                          | A(2015-2016)   | Spanish Languages                                                                  |
+| Rhoda Nieves                         | NULL           | NULL                                                                               |
+| Risa Battle                          | NULL           | NULL                                                                               |
+| Rithin Raveendran                    | A(2015-2016)   | German Languages                                                                   |
+| Roary Macdonald                      | NULL           | NULL                                                                               |
+| rocky                                | NULL           | NULL                                                                               |
+| rocky dwane smith john               | NULL           | NULL                                                                               |
+| Rocky s                              | NULL           | NULL                                                                               |
+| Ronan Johnston                       | 2017A          | Malayalam Elective group                                                           |
+| Ronan Wagner                         | NULL           | NULL                                                                               |
+| Rosalyn Kramer                       | NULL           | NULL                                                                               |
+| Roth Walsh                           | NULL           | NULL                                                                               |
+| Roy Thomas                           | A(2015-2016)   | German Languages                                                                   |
+| Ruby Old Studen                      | NULL           | NULL                                                                               |
+| Ryan Abbott                          | NULL           | NULL                                                                               |
+| S1                                   | NULL           | NULL                                                                               |
+| S2                                   | NULL           | NULL                                                                               |
+| SA sa                                | NULL           | NULL                                                                               |
+| Sachi                                | NULL           | NULL                                                                               |
+| sagar                                | NULL           | NULL                                                                               |
+| Sankitha S                           | A(2015-2016)   | German Languages                                                                   |
+| Scarlett Steele                      | NULL           | NULL                                                                               |
+| Shad Chandler                        | NULL           | NULL                                                                               |
+| Shadil c                             | Dev            | Implementation Support,Support Support,Testing Engineering                         |
+| Shafeer Kumar                        | NULL           | NULL                                                                               |
+| Shana Duran                          | 2017A          | Malayalam Elective group                                                           |
+| Shelley Diaz                         | NULL           | NULL                                                                               |
+| Shilpa                               | NULL           | Physcics Lab Lab                                                                   |
+| Shiv                                 | NULL           | NULL                                                                               |
+| shiv sagar   s                       | NULL           | NULL                                                                               |
+| Shreyas                              | NULL           | NULL                                                                               |
+| Shreyas s                            | Dev            | Development Engineering,Implementation Support,Support Support,Testing Engineering |
+| Shrudhin                             | NULL           | NULL                                                                               |
+| Sib2                                 | NULL           | NULL                                                                               |
+| Sib4                                 | NULL           | NULL                                                                               |
+| sibling                              | NULL           | NULL                                                                               |
+| Silas Meyer                          | NULL           | NULL                                                                               |
+| sne                                  | NULL           | NULL                                                                               |
+| Sneha S                              | A(2015-2016)   | Spanish Languages                                                                  |
+| Snehith                              | NULL           | NULL                                                                               |
+| Snehith la                           | Dev            | Development Engineering,Implementation Support,Support Support,Testing Engineering |
+| Snehith lal                          | NULL           | NULL                                                                               |
+| Sonia Carey                          | NULL           | NULL                                                                               |
+| Spoorthi                             | NULL           | NULL                                                                               |
+| Sreekala K                           | A(2015-2016)   | German Languages                                                                   |
+| Sreelatha V                          | A(2015-2016)   | German Languages                                                                   |
+| Sreeshanth                           | NULL           | NULL                                                                               |
+| Sreeshanth Hebert                    | NULL           | NULL                                                                               |
+| Srilakshmi                           | NULL           | NULL                                                                               |
+| Steve Clive                          | A(2015-2016)   | Spanish Languages                                                                  |
+| stu                                  | NULL           | NULL                                                                               |
+| Stuart Bray                          | NULL           | NULL                                                                               |
+| stud 1                               | NULL           | NULL                                                                               |
+| stud 2                               | NULL           | NULL                                                                               |
+| Student1                             | NULL           | NULL                                                                               |
+| Suman                                | NULL           | NULL                                                                               |
+| Sybil Hubbard                        | NULL           | NULL                                                                               |
+| Sylvester Barber                     | NULL           | NULL                                                                               |
+| t56                                  | NULL           | NULL                                                                               |
+| Talon Trevino                        | NULL           | NULL                                                                               |
+| Tatiana Robles                       | NULL           | NULL                                                                               |
+| Test F                               | NULL           | NULL                                                                               |
+| Test Form asd                        | NULL           | NULL                                                                               |
+| test sib2                            | NULL           | NULL                                                                               |
+| Thomas Roy                           | A(2015-2016)   | German Languages,Spanish Languages                                                 |
+| Thor                                 | NULL           | NULL                                                                               |
+| Thriveni P K                         | A(2015-2016)   | German Languages                                                                   |
+| Tobias Mccullough                    | Attendance2017 | Malayalam Second Language                                                          |
+| Twinkle                              | NULL           | Development Engineering,Support Support,Testing Engineering                        |
+| Twinkle Sandoval                     | NULL           | NULL                                                                               |
+| Upton Park                           | NULL           | NULL                                                                               |
+| Uriah Sears                          | 2018A          | Hindi Second Language,Malayalam Second Language                                    |
+| Ursula Graves                        | NULL           | NULL                                                                               |
+| Vani V                               | A(2015-2016)   | German Languages                                                                   |
+| Venus Sweet                          | NULL           | NULL                                                                               |
+| Vinod                                | Dev            | Support Support,Testing Engineering                                                |
+| Walter Raymond                       | NULL           | NULL                                                                               |
+| Wayne Romero                         | NULL           | NULL                                                                               |
+| Wilma Britt                          | NULL           | NULL                                                                               |
+| Wylie Salazar                        | NULL           | NULL                                                                               |
+| Yolanda Arnold                       | 2018A          | Hindi Second Language                                                              |
+| Zane Sanford                         | NULL           | NULL                                                                               |
+| Zena Hurley                          | NULL           | NULL                                                                               |
+| Zephania Ramirez                     | NULL           | NULL                                                                               |
+| ناوی بەکارهێنان Carson               | NULL           | NULL                                                                               |
++--------------------------------------+----------------+------------------------------------------------------------------------------------+
+357 rows in set (0.004 sec)
+
+

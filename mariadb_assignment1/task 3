@@ -1,0 +1,17 @@
+3.Select any one school and show the total number of absentees for each student of that school for a given period of time in the descending order.
+
+MariaDB [assignment]> select CONCAT(students.first_name, " ", students.last_name) AS Name, count(attendances.student_id) as Absent from students inner join attendances on students.id = attendances.student_id inner join schools on students.school_id = schools.id where (schools.id=8) and (month_date between '2020-01-01' and '2021-01-01') group by attendances.student_id order by month_date DESC;
++-------------+--------+
+| Name        | Absent |
++-------------+--------+
+| Sonia Carey |      1 |
+| asdasd      |      2 |
+| dsdsa       |      2 |
+| stud 2      |      2 |
+| Pankaj raj  |      2 |
++-------------+--------+
+5 rows in set (0.001 sec)
+
+MariaDB [assignment]> 
+
+
